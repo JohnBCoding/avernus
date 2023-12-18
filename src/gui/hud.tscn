@@ -1,0 +1,146 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc00dkskldt63"]
+
+[ext_resource type="Script" path="res://src/gui/hud.gd" id="1_gok6h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jobyi"]
+bg_color = Color(0.0156863, 0.0117647, 0.0117647, 1)
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gok6h")
+metadata/_edit_lock_ = true
+
+[node name="parent" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1152, 162)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -163.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="background" type="Panel" parent="parent"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jobyi")
+
+[node name="main" type="MarginContainer" parent="parent"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="main_hbox" type="HBoxContainer" parent="parent/main"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="character" type="VBoxContainer" parent="parent/main/main_hbox"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="class" type="Label" parent="parent/main/main_hbox/character"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Unknown"
+horizontal_alignment = 1
+
+[node name="details" type="HBoxContainer" parent="parent/main/main_hbox/character"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="status" type="VBoxContainer" parent="parent/main/main_hbox/character/details"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="health" type="Label" parent="parent/main/main_hbox/character/details/status"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Health: 0/0
+"
+
+[node name="sanity" type="Label" parent="parent/main/main_hbox/character/details/status"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Sanity: 0/0
+"
+
+[node name="equipment" type="VBoxContainer" parent="parent/main/main_hbox/character/details"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="main_hand" type="Label" parent="parent/main/main_hbox/character/details/equipment"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Main Hand(Z): MEET ON STICK
+"
+
+[node name="off_hand" type="Label" parent="parent/main/main_hbox/character/details/equipment"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Off Hand(X): None
+"
+
+[node name="status" type="VBoxContainer" parent="parent/main/main_hbox"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="status_text" type="Label" parent="parent/main/main_hbox/status"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Status
+"
+horizontal_alignment = 1
+
+[node name="buff_container" type="HBoxContainer" parent="parent/main/main_hbox/status"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="buffs" type="Label" parent="parent/main/main_hbox/status/buff_container"]
+custom_minimum_size = Vector2(272, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0.584314, 0.52549, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 3
+autowrap_mode = 3
+
+[node name="info" type="VBoxContainer" parent="parent/main/main_hbox"]
+custom_minimum_size = Vector2(300, 125)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="name" type="Label" parent="parent/main/main_hbox/info"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Rat"
+horizontal_alignment = 1
+
+[node name="info" type="Label" parent="parent/main/main_hbox/info"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 3
+
+[node name="tags" type="Label" parent="parent/main/main_hbox/info"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 32
+vertical_alignment = 1

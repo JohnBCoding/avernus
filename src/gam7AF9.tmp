@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8jryutdysk5a"]
+
+[ext_resource type="PackedScene" uid="uid://bm4e12en3qfm0" path="res://src/world.tscn" id="1_3ljwe"]
+[ext_resource type="PackedScene" uid="uid://dc00dkskldt63" path="res://src/gui/hud.tscn" id="2_qelfk"]
+[ext_resource type="Script" path="res://src/gui/game_over.gd" id="3_rdpxo"]
+
+[node name="game" type="Node2D"]
+
+[node name="world" parent="." instance=ExtResource("1_3ljwe")]
+
+[node name="gui" type="CanvasLayer" parent="."]
+
+[node name="hud" parent="gui" instance=ExtResource("2_qelfk")]
+anchors_preset = 12
+anchor_top = 1.0
+offset_top = -72.0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="game_over" type="Control" parent="gui"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_rdpxo")
+
+[node name="end_game" type="Label" parent="gui/game_over"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 704.0
+theme_override_font_sizes/font_size = 32
+text = "Game Over.
+Hit any key to continue"
+horizontal_alignment = 1
+vertical_alignment = 1

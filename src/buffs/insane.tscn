@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqymduykmv6io"]
+
+[ext_resource type="PackedScene" uid="uid://dbrqln8pv4n68" path="res://src/buffs/buff.tscn" id="1_abg4x"]
+
+[node name="insane" instance=ExtResource("1_abg4x")]
+buff_name = "insane"
+stats = {
+"armor": 1
+}

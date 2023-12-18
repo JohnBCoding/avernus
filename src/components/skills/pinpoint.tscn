@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://brbasjrkwwgp4"]
+
+[ext_resource type="PackedScene" uid="uid://yd8s1ey6esj0" path="res://src/components/skills/skill.tscn" id="1_q13ve"]
+[ext_resource type="Script" path="res://src/components/skills/pinpoint.gd" id="2_k7bm8"]
+
+[node name="pinpoint" instance=ExtResource("1_q13ve")]
+script = ExtResource("2_k7bm8")
+skill_name = "Pinpoint"
+requires_targeting = true

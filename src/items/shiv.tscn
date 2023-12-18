@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://birnqlj8obj52"]
+
+[ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_e64x7"]
+[ext_resource type="PackedScene" uid="uid://brbasjrkwwgp4" path="res://src/components/skills/pinpoint.tscn" id="2_ca41i"]
+
+[node name="shiv" instance=ExtResource("1_e64x7")]
+entity_name = "Shiv"
+entity_info = "A small makeshift shiv of bone and twine."
+Skill = ExtResource("2_ca41i")
+stats = {
+"melee_damage": 0
+}
+uses = 4
+
+[node name="sprite" parent="." index="0"]
+frame = 0

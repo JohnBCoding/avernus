@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://pjj0gdjxkfy2"]
+
+[ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_8tome"]
+[ext_resource type="PackedScene" uid="uid://cd37fy4n54h7" path="res://src/components/skills/food.tscn" id="2_gp721"]
+
+[node name="meat_on_stick" instance=ExtResource("1_8tome")]
+entity_name = "Meat On Stick"
+entity_info = "Can be used for protection, or your rumbling stomach."
+Skill = ExtResource("2_gp721")
+stats = {
+"melee_damage": 1
+}
+uses = 1
+
+[node name="sprite" parent="." index="0"]
+frame = 106

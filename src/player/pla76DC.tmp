@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8x2lb1d5plg5"]
+
+[ext_resource type="Texture2D" uid="uid://c0mivt1stnbrt" path="res://assets/CharactersSpriteSheet.png" id="1_3lpr4"]
+[ext_resource type="Script" path="res://src/player/player.gd" id="1_fch8e"]
+[ext_resource type="PackedScene" uid="uid://8waunvyglhpj" path="res://src/components/position.tscn" id="2_wnc55"]
+[ext_resource type="PackedScene" uid="uid://qrsgj3ba8aju" path="res://src/components/health.tscn" id="4_o8mm5"]
+[ext_resource type="PackedScene" uid="uid://duiwq2um6qp3k" path="res://src/components/sanity.tscn" id="5_diehf"]
+[ext_resource type="PackedScene" uid="uid://dw40fjn0gflf5" path="res://src/components/equipment.tscn" id="6_lcqr0"]
+
+[sub_resource type="Animation" id="Animation_vfakg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_vmdoj"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3slw6"]
+_data = {
+"RESET": SubResource("Animation_vfakg"),
+"idle": SubResource("Animation_vmdoj")
+}
+
+[node name="player" type="Node2D"]
+z_index = 10
+z_as_relative = false
+script = ExtResource("1_fch8e")
+entity_position = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://src/components/position.gd"))
+
+health = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://src/components/health.gd"),"base_health":20)
+
+sanity = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://src/components/sanity.gd"),"base_sanity":100)
+
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3lpr4")
+centered = false
+hframes = 6
+vframes = 16
+frame = 7
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3slw6")
+}
+autoplay = "idle"
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 400
+limit_bottom = 264
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_offset = 0.03
+drag_vertical_offset = 0.21
+
+[node name="position" parent="." instance=ExtResource("2_wnc55")]
+
+[node name="health" parent="." instance=ExtResource("4_o8mm5")]
+base_health = 20
+
+[node name="sanity" parent="." instance=ExtResource("5_diehf")]
+base_sanity = 100
+
+[node name="equipment" parent="." instance=ExtResource("6_lcqr0")]
+
+[node name="input_timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="input_timer" to="." method="_on_input_timer_timeout"]

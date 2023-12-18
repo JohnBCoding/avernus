@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8jryutdysk5a"]
+
+[ext_resource type="PackedScene" uid="uid://bm4e12en3qfm0" path="res://src/world.tscn" id="1_3ljwe"]
+[ext_resource type="PackedScene" uid="uid://dc00dkskldt63" path="res://src/gui/hud.tscn" id="2_qelfk"]
+
+[node name="game" type="Node2D"]
+
+[node name="world" parent="." instance=ExtResource("1_3ljwe")]
+
+[node name="gui" type="CanvasLayer" parent="."]
+
+[node name="hud" parent="gui" instance=ExtResource("2_qelfk")]
+anchors_preset = 12
+anchor_top = 1.0
+offset_top = -72.0
+grow_vertical = 0
+size_flags_vertical = 8

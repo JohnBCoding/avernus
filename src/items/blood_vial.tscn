@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsfgw7r3ff4pq"]
+
+[ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_27dpp"]
+[ext_resource type="PackedScene" uid="uid://btkpdr38arg6w" path="res://src/components/skills/cursed_heal.tscn" id="3_7cxve"]
+
+[node name="blood_vial" instance=ExtResource("1_27dpp")]
+entity_name = "Blood Vial"
+entity_info = "Blood of unknown origins. It will heal you, if you can keep it down.."
+Skill = ExtResource("3_7cxve")
+uses = 1

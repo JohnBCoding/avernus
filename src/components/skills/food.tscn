@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd37fy4n54h7"]
+
+[ext_resource type="PackedScene" uid="uid://yd8s1ey6esj0" path="res://src/components/skills/skill.tscn" id="1_oaa3p"]
+[ext_resource type="Script" path="res://src/components/skills/food.gd" id="2_1sp31"]
+
+[node name="food" instance=ExtResource("1_oaa3p")]
+script = ExtResource("2_1sp31")
+health_heal_amount = 1
+sanity_heal_amount = 10
+skill_name = "Food"

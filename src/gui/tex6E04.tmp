@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cosyw4uq3ygvp"]
+
+[ext_resource type="Script" path="res://src/gui/text_controller.gd" id="1_w5iom"]
+
+[node name="text_controller" type="Node2D"]
+process_mode = 3
+z_index = 11
+script = ExtResource("1_w5iom")

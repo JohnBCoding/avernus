@@ -1,0 +1,45 @@
+extends Control
+
+@onready var class_label = $parent/main/main_hbox/character/class
+@onready var health_label = $parent/main/main_hbox/character/details/status/health
+@onready var sanity_label = $parent/main/main_hbox/character/details/status/sanity
+@onready var main_label = $parent/main/main_hbox/character/details/equipment/main_hand
+@onready var off_label = $parent/main/main_hbox/character/details/equipment/off_hand
+@onready var buffs_label = $parent/main/main_hbox/status/buff_container/buffs
+@onready var info_name = $parent/main/main_hbox/info/name
+@onready var info_info = $parent/main/main_hbox/info/info
+@onready var info_tags = $parent/main/main_hbox/info/tags
+
+func _process(delta):
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		class_label.text = player.entity_name
+		health_label.text = "Health: %s/%s" % [player.health.current_health, player.health.max_health]
+		sanity_label.text = "Sanity: %s/%s" % [player.sanity.current_sanity, player.sanity.max_sanity]
+		
+		if is_instance_valid(player.equipment.main_hand):
+			main_label.text = "Main Hand(Z): %s" % [player.equipment.main_hand.entity_name]
+		else:
+			main_label.text = "Main Hand(Z): None"
+			
+		if is_instance_valid(player.equipment.off_hand):
+			off_label.text = "Off Hand(X): %s" % [player.equipment.off_hand.entity_name]
+		else:
+			off_label.text = "Off Hand(X): None"
+		
+		var buff_text = ""
+		for buff in player.status.buffs:
+			buff_text += "%s " % buff.buff_name.capitalize()
+		buffs_label.text = buff_text
+		
+		# show info if player is standing on something
+		info_name.text = "Ground"
+		info_info.text = "Yep, thats the ground."
+		info_tags.text = ""
+		for item in get_tree().get_nodes_in_group("item"):
+			if player.entity_position.coords == item.entity_position.coords:
+				info_name.text = item.entity_name
+				info_info.text = item.entity_info
+				if item.skill:
+					info_tags.text = "\n%s %s" % [item.skill.skill_name, "Targeted" if item.skill.requires_targeting else ""]
+				break

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://wy616lb4x7ff"]
+
+[ext_resource type="Script" path="res://src/gui/floating_text.gd" id="1_6oea8"]
+
+[node name="floating_text" type="Label"]
+custom_minimum_size = Vector2(8, 8)
+offset_right = 13.0
+offset_bottom = 14.0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_6oea8")
