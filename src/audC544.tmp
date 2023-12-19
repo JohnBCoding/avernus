@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://deaxj8ia6vadr"]
+
+[ext_resource type="Script" path="res://src/audio_player.gd" id="1_vapo3"]
+[ext_resource type="AudioStream" uid="uid://dqtw7lgl3uik8" path="res://assets/music/02 Lost in the Mist (LOOP).wav" id="2_gi7cw"]
+
+[node name="audio_controller" type="Node"]
+script = ExtResource("1_vapo3")
+
+[node name="main_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gi7cw")

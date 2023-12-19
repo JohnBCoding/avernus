@@ -13,6 +13,10 @@ func _process(_delta):
 		map.restart()
 		get_parent().get_parent().modulate.a = 1
 		get_tree().paused = false
+		
+		var audio = get_tree().get_first_node_in_group("audio")
+		audio.play_main()
+		
 		queue_free()
 
 func on_tween_finished():

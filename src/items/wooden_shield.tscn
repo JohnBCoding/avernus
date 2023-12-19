@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://fedwj2axjff0"]
+
+[ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_rlhwr"]
+
+[node name="wooden_shield" instance=ExtResource("1_rlhwr")]
+entity_name = "Wooden Shield"
+entity_info = "A sturdy wooden shield, what it lacks in intrigue it makes up in reliability."
+stats = {
+"armor": 2
+}
+uses = -1
+
+[node name="sprite" parent="." index="0"]
+frame = 78

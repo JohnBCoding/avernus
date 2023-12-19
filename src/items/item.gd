@@ -9,6 +9,7 @@ extends Node2D
 @onready var animation_player = $animation_player
 @onready var Targeting = preload("res://src/gui/targeting.tscn")
 var skill
+var picked_up = false
 
 func _ready():
 	add_to_group("item")
@@ -21,12 +22,14 @@ func drop(pos):
 	visible = true
 	entity_position.coords = pos
 	position = entity_position.coords * 8
+	picked_up = false
 	
 func pickup(parent):
 	visible = false
 	position = Vector2(-80, -80)
 	entity_position.coords = Vector2(-1, -1)
 	parent.equipment.equip(parent, self)
+	picked_up = true
 
 func use(parent):
 	if skill:

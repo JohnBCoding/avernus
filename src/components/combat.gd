@@ -16,7 +16,10 @@ func take_damage(parent, damage):
 	var reduce_damage = max(0, damage - parent.status.stats.armor)
 	if parent.health.damage(reduce_damage):
 		if !parent.is_in_group("player"):
-			parent.queue_free()
+			parent.play_animation("death")
 		
 	if parent.is_in_group("player"):
 		parent.sanity.tick(parent)
+		parent.animation_player.play("hit")
+	else:
+		parent.play_animation("hit")

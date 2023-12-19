@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://qeljkft8vni6"]
+
+[ext_resource type="PackedScene" uid="uid://bikdwvvanhhd1" path="res://src/mobs/mob.tscn" id="1_5d6ic"]
+
+[node name="hell_bat" instance=ExtResource("1_5d6ic")]
+entity_name = "Hell Bat"
+IDLE_ANI = "bat_idle"
+ATTACK_ANI = "bat_attack"
+HIT_ANI = "bat_hit"
+DEATH_ANI = "bat_death"
+
+[node name="animation_player" parent="." index="1"]
+autoplay = "bat_idle"
+
+[node name="health" parent="." index="3"]
+base_health = 1
+
+[node name="combat" parent="." index="4"]
+armor = 3

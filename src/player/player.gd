@@ -10,6 +10,7 @@ extends Node2D
 @onready var sprite = $sprite
 @onready var animation_player = $animation_player
 @onready var input_timer = $input_timer
+var in_combat = false
 var can_input = true
 
 func _ready():

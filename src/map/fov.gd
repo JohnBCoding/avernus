@@ -29,11 +29,16 @@ func update_visibility(width, height, pos, sight_range):
 				if tile in get_parent().BLOCKSITE_TILES:
 					break
 	
+	var in_combat = false
 	for mob in get_tree().get_nodes_in_group('mob'):
 		if get_cell_atlas_coords(0, mob.entity_position.coords) == Vector2i(-1, -1):
 			mob.visible = true
+			in_combat = true
 		else:
 			mob.visible = false
+	
+	var player = get_tree().get_first_node_in_group("player")
+	player.in_combat = in_combat
 			
 	for item in get_tree().get_nodes_in_group('item'):
 		if get_cell_atlas_coords(0,  item.entity_position.coords) == Vector2i(-1, -1):

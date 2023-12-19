@@ -8,6 +8,9 @@ var current = null
 
 func _ready():
 	add_to_group("queue")
+
+func insert(entity):
+	queue.push_front(entity)
 	
 func add(entity):
 	queue.push_back(entity)
@@ -51,19 +54,25 @@ func tick():
 				var action = await current.handle_input()
 				if action:
 					current.tick()
-					ani_timer.wait_time = 0.2
+					if current.in_combat:
+						ani_timer.wait_time = 0.3
+					else:
+						ani_timer.wait_time = 0.0001
 					next_turn()
 			else: # AI
 				# Current don't process anything that isn't in the FOV
-				if current.visible:
+				if current.visible && current.health.current_health > 0:
 					# If tick is true, ai did something so wait for animation
 					# otherwise, don't wait
 					if current.tick():
-						ani_timer.wait_time = 0.1
+						ani_timer.wait_time = 0.2
 					else:
 						ani_timer.wait_time = 0.0001
 				else:
-					ani_timer.wait_time = 0.0001
+					if current.health.current_health > 0:
+						ani_timer.wait_time = 0.0001
+					else:
+						ani_timer.wait_time = 0.5
 				next_turn()
 		else:
 			remove(current)

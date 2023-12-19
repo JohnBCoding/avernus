@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bikdwvvanhhd1"]
+[gd_scene load_steps=17 format=3 uid="uid://bikdwvvanhhd1"]
 
 [ext_resource type="Script" path="res://src/mobs/mob.gd" id="1_d7by6"]
 [ext_resource type="Texture2D" uid="uid://rmaak414fxmv" path="res://assets/EnemySpriteSheet.png" id="2_cxjbt"]
@@ -21,25 +21,44 @@ tracks/0/keys = {
 "update": 1,
 "values": [37]
 }
-
-[sub_resource type="Animation" id="Animation_kvytd"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [37, 38]
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_pmqt5"]
+[sub_resource type="Animation" id="Animation_hcjdt"]
 resource_name = "rat_idle"
 length = 2.0
 loop_mode = 1
@@ -56,11 +75,202 @@ tracks/0/keys = {
 "values": [25, 26]
 }
 
+[sub_resource type="Animation" id="Animation_al4jy"]
+resource_name = "bat_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [31, 32]
+}
+
+[sub_resource type="Animation" id="Animation_q3jj7"]
+resource_name = "rat_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [28]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yetum"]
+resource_name = "bat_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [34]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s20or"]
+resource_name = "rat_death"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [29]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s2f1o"]
+resource_name = "bat_death"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [35]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1ax0n"]
+resource_name = "rat_attack"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [27]
+}
+
+[sub_resource type="Animation" id="Animation_toby5"]
+resource_name = "bat_attack"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [33]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy6i0"]
 _data = {
 "RESET": SubResource("Animation_b78qf"),
-"idle": SubResource("Animation_kvytd"),
-"rat_idle": SubResource("Animation_pmqt5")
+"bat_attack": SubResource("Animation_toby5"),
+"bat_death": SubResource("Animation_s2f1o"),
+"bat_hit": SubResource("Animation_yetum"),
+"bat_idle": SubResource("Animation_al4jy"),
+"rat_attack": SubResource("Animation_1ax0n"),
+"rat_death": SubResource("Animation_s20or"),
+"rat_hit": SubResource("Animation_q3jj7"),
+"rat_idle": SubResource("Animation_hcjdt")
 }
 
 [node name="mob" type="Node2D" node_paths=PackedStringArray("entity_position", "health", "combat", "status")]
@@ -85,7 +295,6 @@ process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_uy6i0")
 }
-autoplay = "rat_idle"
 
 [node name="position" parent="." instance=ExtResource("3_akvas")]
 
@@ -97,3 +306,5 @@ melee_damage = 1
 armor = 1
 
 [node name="status" parent="." instance=ExtResource("6_o4vcx")]
+
+[connection signal="animation_finished" from="animation_player" to="." method="_on_animation_player_animation_finished"]

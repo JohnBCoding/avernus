@@ -32,7 +32,8 @@ func clear_entities(delete_player = false):
 	for mob in get_tree().get_nodes_in_group("mob"):
 		mob.queue_free()
 	for item in get_tree().get_nodes_in_group("item"):
-		item.queue_free()
+		if !item.picked_up:
+			item.queue_free()
 		
 func restart():
 	modulate.a = 0

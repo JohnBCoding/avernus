@@ -26,6 +26,9 @@ func _process(_delta):
 		parent.sprite.flip_h = false
 		
 	elif Input.is_action_just_pressed("cycle"):
+		var turn_queue = get_tree().get_first_node_in_group("queue")
+		turn_queue.remove(parent)
+		turn_queue.insert(parent)
 		get_tree().paused = false
 		queue_free()
 		

@@ -9,6 +9,7 @@ func create_text(pos, text):
 	var wait = false
 	if get_child_count() > 0:
 		wait = true
+	
 	var new_text = Text.instantiate()
 	add_child(new_text)
 	new_text.start(pos, text, wait)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://2tvt0vluc8sk"]
+
+[ext_resource type="PackedScene" uid="uid://bikdwvvanhhd1" path="res://src/mobs/mob.tscn" id="1_7va0e"]
+
+[node name="hell_rat" instance=ExtResource("1_7va0e")]
+IDLE_ANI = "rat_idle"
+ATTACK_ANI = "rat_attack"
+HIT_ANI = "rat_hit"
+DEATH_ANI = "rat_death"
+
+[node name="animation_player" parent="." index="1"]
+autoplay = "rat_idle"

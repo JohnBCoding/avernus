@@ -5,4 +5,6 @@
 
 [node name="cursed_heal" instance=ExtResource("1_14sx0")]
 script = ExtResource("2_qa7gx")
+health_heal_amount = 5
+sanity_damage_amount = 3
 skill_name = "CursedHeal"
