@@ -16,6 +16,8 @@ func move(parent, d_pos):
 			coords += d_pos
 			
 			# move
+			var audio = get_tree().get_first_node_in_group("audio")
+			audio.play_walk()
 			move_tween(parent)
 			
 			# update visibility
@@ -45,3 +47,5 @@ func move_tween(parent):
 
 func on_tween_finished():
 	moving = false
+	var audio = get_tree().get_first_node_in_group("audio")
+	audio.stop_walk()

@@ -19,9 +19,15 @@ func cycle():
 	off_hand = temp
 
 func use_main(parent):
-	if !main_hand.use(parent):
+	if is_instance_valid(main_hand):
+		if !main_hand.use(parent):
+			main_hand = null
+	else:
 		main_hand = null
 		
 func use_off(parent):
-	if !off_hand.use(parent):
+	if is_instance_valid(off_hand):
+		if !off_hand.use(parent):
+			off_hand = null
+	else:
 		off_hand = null

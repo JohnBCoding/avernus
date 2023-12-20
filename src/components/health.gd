@@ -28,3 +28,10 @@ func heal(amount):
 	
 	var text_controller = get_tree().get_first_node_in_group("text_controller")
 	text_controller.create_text(get_parent().position, "+%s HP" % amount_healed)
+	
+func update_max(amount):
+	current_health += amount
+	max_health += amount
+	
+	var text_controller = get_tree().get_first_node_in_group("text_controller")
+	text_controller.create_text(get_parent().position, "+%s MAX HP" % amount)

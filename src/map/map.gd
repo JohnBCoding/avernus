@@ -15,9 +15,9 @@ var TileType = {
 var WALKABLE_TILES = [TileType.FLOOR]
 var BLOCKABLE_TILES = [TileType.MOUNTAIN, TileType.VASE, TileType.GOLDVASE]
 var BLOCKSITE_TILES = [TileType.MOUNTAIN]
-
 @onready var fov = $fov
 var astar = AStarGrid2D.new()
+var current_floor = 1
 
 func _ready():
 	add_to_group("map")
@@ -63,6 +63,7 @@ func next_floor():
 	var turn_queue = get_tree().get_first_node_in_group("queue")
 	turn_queue.init(self)
 	
+	current_floor += 1
 	modulate.a = 1
 
 func walkable(pos):
@@ -86,6 +87,8 @@ func check_tile_interaction(pos, tile):
 		TileType.VASE, TileType.GOLDVASE:
 			set_cell(0, pos, 1, TileType.FLOOR)
 			spawner.spawn_random_item(self, pos)
+			var audio = get_tree().get_first_node_in_group("audio")
+			audio.play_destroy_vase()
 			return true
 			
 	return false
@@ -196,7 +199,7 @@ func generate_cave():
 	
 func spawn_mobs_area():
 	var spawn_locations = get_used_cells_by_id(0, 1, TileType.FLOOR)
-	if len(spawn_locations) > 0:
+	if len(spawn_locations)-1 > 0:
 		for i in range(CA_MOB_SPAWN_AMOUNT):
 			var random_index = randi_range(0, len(spawn_locations)-1)
 			spawner.spawn_mob(self, spawn_locations[random_index])

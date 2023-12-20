@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyq04ugf424mw"]
+
+[ext_resource type="PackedScene" uid="uid://yd8s1ey6esj0" path="res://src/components/skills/skill.tscn" id="1_k2gmy"]
+[ext_resource type="Script" path="res://src/components/skills/vitality.gd" id="2_r0u7o"]
+
+[node name="vitality" instance=ExtResource("1_k2gmy")]
+script = ExtResource("2_r0u7o")
+boost_amount = 5
+skill_name = "Vitality"

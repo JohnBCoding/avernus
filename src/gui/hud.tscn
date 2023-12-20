@@ -94,6 +94,13 @@ theme_override_font_sizes/font_size = 32
 text = "Off Hand(X): None
 "
 
+[node name="floor" type="Label" parent="parent/main/main_hbox/character"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Floor 1
+"
+
 [node name="status" type="VBoxContainer" parent="parent/main/main_hbox"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2

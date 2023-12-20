@@ -27,7 +27,7 @@ func heal(amount):
 	text_controller.create_text(get_parent().position, "+%s SN" % amount)
 	
 func tick(parent):
-	if randi_range(1, 10) == 1:
+	if randi_range(1, 10) <= 2:
 		if current_sanity > 0:
 			current_sanity -= 1
 			

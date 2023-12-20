@@ -43,6 +43,8 @@ func tick():
 			play_animation("attack")
 			z_index = 200
 			combat.deal_damage(self, player)
+			var audio =  get_tree().get_first_node_in_group("audio")
+			audio.play_player_damaged()
 			
 		return true
 	return false

@@ -50,6 +50,8 @@ func handle_input():
 				else:
 					animation_player.play("attack")
 					combat.deal_damage(self, blocker)
+					var audio = get_tree().get_first_node_in_group("audio")
+					audio.play_basic_hit()
 					return "move"
 			else:
 				return "move"

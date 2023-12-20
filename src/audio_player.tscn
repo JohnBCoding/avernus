@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://deaxj8ia6vadr"]
+[gd_scene load_steps=8 format=3 uid="uid://deaxj8ia6vadr"]
 
 [ext_resource type="Script" path="res://src/audio_player.gd" id="1_vapo3"]
 [ext_resource type="AudioStream" uid="uid://c7woktdh168q5" path="res://assets/music/06 Unholy Illusions (LOOP).wav" id="2_1ejs3"]
 [ext_resource type="AudioStream" uid="uid://c6e7nttkgv8ci" path="res://assets/music/01 Waltz of the Dead (LOOP).wav" id="3_25lqn"]
+[ext_resource type="AudioStream" uid="uid://dj38tt06et3ws" path="res://assets/sounds/Walking.wav" id="4_bouq2"]
+[ext_resource type="AudioStream" uid="uid://csu63vyw466bd" path="res://assets/sounds/Hit 5.wav" id="5_tkjl2"]
+[ext_resource type="AudioStream" uid="uid://c15jv4ttoa58x" path="res://assets/sounds/Character Hit 6.wav" id="6_df4hj"]
+[ext_resource type="AudioStream" uid="uid://d0tp0sou06lfl" path="res://assets/sounds/Open Chest 1.wav" id="7_dvyhk"]
 
 [node name="audio_controller" type="Node"]
 process_mode = 3
@@ -10,8 +14,24 @@ script = ExtResource("1_vapo3")
 
 [node name="main_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_1ejs3")
-volume_db = -50.0
+volume_db = -30.0
 
 [node name="death_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_25lqn")
-volume_db = -55.0
+volume_db = -40.0
+
+[node name="walk_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bouq2")
+volume_db = -30.0
+
+[node name="basic_hit_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tkjl2")
+volume_db = -25.0
+
+[node name="player_damaged_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_df4hj")
+volume_db = -30.0
+
+[node name="destroy_vase_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dvyhk")
+volume_db = -30.0

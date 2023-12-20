@@ -9,6 +9,7 @@ extends Control
 @onready var info_name = $parent/main/main_hbox/info/name
 @onready var info_info = $parent/main/main_hbox/info/info
 @onready var info_tags = $parent/main/main_hbox/info/tags
+@onready var floor_label = $parent/main/main_hbox/character/floor
 
 func _process(delta):
 	var player = get_tree().get_first_node_in_group("player")
@@ -43,3 +44,7 @@ func _process(delta):
 				if item.skill:
 					info_tags.text = "\n%s %s" % [item.skill.skill_name, "Targeted" if item.skill.requires_targeting else ""]
 				break
+				
+		# show map floor
+		var map = get_tree().get_first_node_in_group("map")
+		floor_label.text = "Floor %s" % map.current_floor

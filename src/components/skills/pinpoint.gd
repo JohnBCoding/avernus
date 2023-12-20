@@ -8,3 +8,5 @@ func activate(parent, dir=null):
 			if blocker.is_in_group("mob"):
 				parent.animation_player.play("attack")
 				parent.combat.deal_damage(parent, blocker, true)
+				var audio = get_tree().get_first_node_in_group("audio")
+				audio.play_basic_hit()
