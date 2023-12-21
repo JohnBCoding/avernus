@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dclig2gw2nljt"]
+
+[ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_wsnhy"]
+
+[node name="soulmark" instance=ExtResource("1_wsnhy")]
+entity_name = "Soulmark"
+entity_info = "The small skull glows from an imprinted soul. Someone down here might have a use for it..."
+glow = true
+
+[node name="sprite" parent="." index="0"]
+frame = 134

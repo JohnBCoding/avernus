@@ -6,7 +6,7 @@ func activate(parent, dir=null):
 	if blocker:
 		if typeof(blocker) != TYPE_VECTOR2I:
 			if blocker.is_in_group("mob"):
-				parent.animation_player.play("attack")
+				parent.animation_player.play("pinpoint")
 				parent.combat.deal_damage(parent, blocker, true)
 				var audio = get_tree().get_first_node_in_group("audio")
 				audio.play_basic_hit()

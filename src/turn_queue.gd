@@ -55,7 +55,7 @@ func tick():
 				if action:
 					current.tick()
 					if current.in_combat:
-						ani_timer.wait_time = 0.3
+						ani_timer.wait_time = 0.25
 					else:
 						ani_timer.wait_time = 0.0001
 					next_turn()
@@ -65,14 +65,14 @@ func tick():
 					# If tick is true, ai did something so wait for animation
 					# otherwise, don't wait
 					if current.tick():
-						ani_timer.wait_time = 0.2
+						ani_timer.wait_time = 0.15
 					else:
 						ani_timer.wait_time = 0.0001
 				else:
 					if current.health.current_health > 0:
 						ani_timer.wait_time = 0.0001
 					else:
-						ani_timer.wait_time = 0.5
+						ani_timer.wait_time = 0.4
 				next_turn()
 		else:
 			remove(current)

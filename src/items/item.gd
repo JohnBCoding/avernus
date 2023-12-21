@@ -6,6 +6,7 @@ extends Node2D
 @export var Skill: PackedScene
 @export var stats: Dictionary
 @export var uses: int
+@export var glow: bool
 @onready var animation_player = $animation_player
 @onready var Targeting = preload("res://src/gui/targeting.tscn")
 var skill
@@ -53,4 +54,7 @@ func use(parent):
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "spawn":
-		animation_player.play("idle")
+		if glow:
+			animation_player.play("glow_idle")
+		else:
+			animation_player.play("idle")

@@ -94,7 +94,19 @@ theme_override_font_sizes/font_size = 32
 text = "Off Hand(X): None
 "
 
-[node name="floor" type="Label" parent="parent/main/main_hbox/character"]
+[node name="other_details" type="HBoxContainer" parent="parent/main/main_hbox/character"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 32
+
+[node name="soulmarks" type="Label" parent="parent/main/main_hbox/character/other_details"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Soulmarks: 0
+"
+
+[node name="floor" type="Label" parent="parent/main/main_hbox/character/other_details"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32

@@ -11,11 +11,21 @@ extends Node2D
 @export var DEATH_ANI: String
 @onready var sprite = $sprite
 @onready var animation_player = $animation_player
+var level = 0
 
-func _ready():
+var item_drop_table = [["", 75], [preload("res://src/items/soulmark.tscn"), 25]]
+
+func setup(map_pos, current_floor):
 	add_to_group("mob")
+	update_floor_mods(current_floor)
 	status.calculate_stats(self)
+	
+	position = map_pos * 8
+	entity_position.coords = Vector2(map_pos)
 
+func update_floor_mods(_current_floor):
+	pass
+	
 func play_animation(anim):
 	match anim:
 		"attack":
@@ -23,10 +33,14 @@ func play_animation(anim):
 		"hit":
 			animation_player.play(HIT_ANI)
 		"death":
-			print(anim)
 			animation_player.play(DEATH_ANI)
 			
 func tick():
+	if path_to_player():
+		return true
+	return false
+
+func path_to_player():
 	var map = get_tree().get_nodes_in_group("map")[0]
 	var player = get_tree().get_nodes_in_group("player")[0]
 	var path = map.find_path(entity_position.coords, player.entity_position.coords)
@@ -43,12 +57,10 @@ func tick():
 			play_animation("attack")
 			z_index = 200
 			combat.deal_damage(self, player)
-			var audio =  get_tree().get_first_node_in_group("audio")
-			audio.play_player_damaged()
 			
 		return true
 	return false
-
+			
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name != IDLE_ANI && anim_name != DEATH_ANI:
 		if anim_name == HIT_ANI:
@@ -59,4 +71,6 @@ func _on_animation_player_animation_finished(anim_name):
 			z_index = 1
 		animation_player.play(IDLE_ANI)
 	elif anim_name == DEATH_ANI:
+		var map = get_tree().get_first_node_in_group("map")
+		map.spawner.spawn_item_from_table(map, entity_position.coords, item_drop_table)
 		queue_free()

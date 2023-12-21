@@ -27,12 +27,13 @@ func heal(amount):
 	text_controller.create_text(get_parent().position, "+%s SN" % amount)
 	
 func tick(parent):
-	if randi_range(1, 10) <= 2:
+	var map = get_tree().get_first_node_in_group("map")
+	var tick_chance = min(12+map.current_floor, 25)
+	if randi_range(1, 100) <= tick_chance:
 		if current_sanity > 0:
 			current_sanity -= 1
 			
 	if current_sanity <= sanity_check && sane:
-		print("Here")
 		sane = false
 		for buff in parent.status.buffs:
 			if buff.buff_name == "sane":
@@ -42,6 +43,10 @@ func tick(parent):
 		var buff = sanity_buffs[1].instantiate()
 		parent.add_child(buff)
 		parent.status.buffs.push_front(buff)
+		
+		var text_controller = get_tree().get_first_node_in_group("text_controller")
+		text_controller.create_text(parent.position, "+INSANE")
+		
 	elif current_sanity > sanity_check && !sane:
 		sane = true
 		for buff in parent.status.buffs:
@@ -52,3 +57,6 @@ func tick(parent):
 		var buff = sanity_buffs[0].instantiate()
 		parent.add_child(buff)
 		parent.status.buffs.push_front(buff)
+		
+		var text_controller = get_tree().get_first_node_in_group("text_controller")
+		text_controller.create_text(parent.position, "+SANE")

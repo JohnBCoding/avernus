@@ -1,10 +1,10 @@
 extends Node
 
 @onready var Player = preload("res://src/player/player.tscn")
-@onready var mob_spawn_table = [[preload("res://src/mobs/hell_rat.tscn"), 20], [preload("res://src/mobs/hell_bat.tscn"), 1]]
+@onready var mob_spawn_table = [[preload("res://src/mobs/hell_rat.tscn"), 20], [preload("res://src/mobs/hell_bat.tscn"), 3]]
 @onready var item_spawn_table = [
 	[preload("res://src/items/shiv.tscn"), 25], [preload("res://src/items/wooden_shield.tscn"), 1], [preload("res://src/items/preserved_insect.tscn"), 1],
-	[preload("res://src/items/blood_vial.tscn"), 30], [preload("res://src/items/meat_on_stick.tscn"), 75]]
+	[preload("res://src/items/soulmark.tscn"), 5], [preload("res://src/items/blood_vial.tscn"), 30], [preload("res://src/items/meat_on_stick.tscn"), 75]]
 
 func spawn_player(parent, pos):
 	var player = Player.instantiate()
@@ -12,12 +12,11 @@ func spawn_player(parent, pos):
 	player.position = pos * 8
 	player.entity_position.coords = Vector2(pos)
 	
-func spawn_mob(parent, pos):
+func spawn_mob(parent, pos, floor):
 	var random_mob = get_random_from_table(mob_spawn_table)
 	var mob = random_mob.instantiate()
 	parent.add_child(mob)
-	mob.position = pos * 8
-	mob.entity_position.coords = Vector2(pos)
+	mob.setup(pos, floor)
 
 func spawn_random_item(parent, pos):
 	var current_floor = get_tree().get_first_node_in_group("map").current_floor
@@ -29,6 +28,14 @@ func spawn_random_item(parent, pos):
 		item.position = pos * 8
 		item.entity_position.coords = Vector2(pos)
 
+func spawn_item_from_table(parent, pos, item_spawn_table):
+	var random_item = get_random_from_table(item_spawn_table)
+	if random_item:
+		var item = random_item.instantiate()
+		parent.add_child(item)
+		item.position = pos * 8
+		item.entity_position.coords = Vector2(pos)
+	
 func get_random_from_table(table):
 	var total_weight = 0
 	for spawn in table:

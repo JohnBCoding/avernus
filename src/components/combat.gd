@@ -21,5 +21,7 @@ func take_damage(parent, damage):
 	if parent.is_in_group("player"):
 		parent.sanity.tick(parent)
 		parent.animation_player.play("hit")
+		var audio =  get_tree().get_first_node_in_group("audio")
+		audio.play_player_damaged()
 	else:
 		parent.play_animation("hit")

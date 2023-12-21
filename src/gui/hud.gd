@@ -9,14 +9,15 @@ extends Control
 @onready var info_name = $parent/main/main_hbox/info/name
 @onready var info_info = $parent/main/main_hbox/info/info
 @onready var info_tags = $parent/main/main_hbox/info/tags
-@onready var floor_label = $parent/main/main_hbox/character/floor
+@onready var floor_label = $parent/main/main_hbox/character/other_details/floor
+@onready var soulmarks_label = $parent/main/main_hbox/character/other_details/soulmarks
 
 func _process(delta):
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		class_label.text = player.entity_name
 		health_label.text = "Health: %s/%s" % [player.health.current_health, player.health.max_health]
-		sanity_label.text = "Sanity: %s/%s" % [player.sanity.current_sanity, player.sanity.max_sanity]
+		sanity_label.text = "Sanity: %s/%s" % [player.sanity.current_sanity, player.sanity.sanity_check]
 		
 		if is_instance_valid(player.equipment.main_hand):
 			main_label.text = "Main Hand(Z): %s" % [player.equipment.main_hand.entity_name]
@@ -44,7 +45,10 @@ func _process(delta):
 				if item.skill:
 					info_tags.text = "\n%s %s" % [item.skill.skill_name, "Targeted" if item.skill.requires_targeting else ""]
 				break
-				
+		
+		# Update soulmarks
+		soulmarks_label.text = "Soulmarks: %s" % player.soulmarks
+		
 		# show map floor
 		var map = get_tree().get_first_node_in_group("map")
 		floor_label.text = "Floor %s" % map.current_floor

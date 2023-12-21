@@ -10,6 +10,7 @@ extends Node2D
 @onready var sprite = $sprite
 @onready var animation_player = $animation_player
 @onready var input_timer = $input_timer
+var soulmarks = 0
 var in_combat = false
 var can_input = true
 
@@ -62,10 +63,15 @@ func handle_input():
 			var map = get_tree().get_first_node_in_group("map")
 			if map.get_cell_atlas_coords(0, entity_position.coords) == map.TileType.STAIRS:
 				map.next_floor()
-				
+			
+			# Check picking up item
 			for item in get_tree().get_nodes_in_group("item"):
 				if item.entity_position.coords == entity_position.coords:
-					item.pickup(self)
+					if item.entity_name == "Soulmark":
+						soulmarks += 1
+						item.queue_free()
+					else:
+						item.pickup(self)
 					return "pickup"
 		
 		elif Input.is_action_just_pressed("use_main"):

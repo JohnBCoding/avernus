@@ -6,4 +6,5 @@
 [node name="vitality" instance=ExtResource("1_k2gmy")]
 script = ExtResource("2_r0u7o")
 boost_amount = 5
+sanity_damage_amount = 5
 skill_name = "Vitality"

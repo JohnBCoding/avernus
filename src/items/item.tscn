@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ovmnte5e324g"]
+[gd_scene load_steps=9 format=3 uid="uid://ovmnte5e324g"]
 
 [ext_resource type="Script" path="res://src/items/item.gd" id="1_7habe"]
 [ext_resource type="Texture2D" uid="uid://ddrdw6f7qyw0y" path="res://assets/WeaponsAndItemSpriteSheet.png" id="1_gt27j"]
@@ -17,6 +17,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_fnry5"]
@@ -52,9 +64,39 @@ tracks/0/keys = {
 "values": [Vector2(0, -4), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_i8rmg"]
+resource_name = "glow_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.717647, 0.690196, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p8mxj"]
 _data = {
 "RESET": SubResource("Animation_bxxdd"),
+"glow_idle": SubResource("Animation_i8rmg"),
 "idle": SubResource("Animation_fnry5"),
 "spawn": SubResource("Animation_b368h")
 }
