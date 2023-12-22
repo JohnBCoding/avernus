@@ -1,5 +1,8 @@
 extends Control
 
+@onready var GameOver = preload("res://src/gui/game_over.tscn")
+@onready var CharacterInfo = preload("res://src/gui/character_info.tscn")
+
 @onready var class_label = $parent/main/main_hbox/character/class
 @onready var health_label = $parent/main/main_hbox/character/details/status/health
 @onready var sanity_label = $parent/main/main_hbox/character/details/status/sanity
@@ -13,6 +16,16 @@ extends Control
 @onready var soulmarks_label = $parent/main/main_hbox/character/other_details/soulmarks
 
 func _process(delta):
+	var world = get_tree().get_first_node_in_group("world")
+	match world.state:
+		world.WorldState.Tick:
+			modulate.a = 1
+		world.WorldState.Info:
+			modulate.a = 0.1
+			add_child(CharacterInfo.instantiate())
+		world.WorldState.GameOver:
+			add_child(GameOver.instantiate())
+			
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		class_label.text = player.entity_name

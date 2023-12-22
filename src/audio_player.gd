@@ -11,12 +11,19 @@ func _ready():
 	add_to_group("audio")
 	play_main()
 
+func stop_all_sounds():
+	walk_sound.stop()
+	basic_hit.stop()
+	player_damaged_sound.stop()
+	destroy_vase_sound.stop()
+	
 func play_main():
 	death_music.stop()
 	main_music.play()
 	
 func play_dead():
 	main_music.stop()
+	stop_all_sounds()
 	death_music.play()
 
 func play_walk():

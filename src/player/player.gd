@@ -88,6 +88,10 @@ func handle_input():
 		if Input.is_action_just_pressed("cycle"):
 			equipment.cycle()
 			
+		elif Input.is_action_just_pressed("info"):
+			var world = get_tree().get_first_node_in_group("world")
+			world.state = world.WorldState.Info
+			
 func start_input_timer():
 	can_input = false
 	input_timer.start()

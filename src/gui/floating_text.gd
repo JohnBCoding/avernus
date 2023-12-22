@@ -1,6 +1,10 @@
 extends Label
 
-func start(pos, new_text, wait):
+func start(pos, new_text, type, wait, ):
+	match type:
+		"good": modulate = Color("#f9f5ef")
+		"bad": modulate = Color("#a13d3b")
+		
 	var dy = Vector2(0, 28)
 	if wait:
 		await get_tree().create_timer(0.15).timeout

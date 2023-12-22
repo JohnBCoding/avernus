@@ -48,7 +48,8 @@ func tick():
 				# Game over
 				if current.health.current_health <= 0:
 					current.animation_player.play("death")
-					return "game_over"
+					var world = get_tree().get_first_node_in_group("world")
+					world.state = world.WorldState.GameOver
 				
 				# Get action otherwise
 				var action = await current.handle_input()

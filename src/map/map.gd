@@ -55,7 +55,7 @@ func next_floor():
 	modulate.a = 0
 	clear_entities()
 	await get_tree().create_timer(1).timeout
-	if current_floor < 3:
+	if current_floor < 4:
 		generate_cave()
 	else:
 		load_prefab()

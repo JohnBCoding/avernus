@@ -19,12 +19,12 @@ func damage(amount):
 	var adjusted_amount = max(0, current_sanity-amount)
 	current_sanity = adjusted_amount
 	var text_controller = get_tree().get_first_node_in_group("text_controller")
-	text_controller.create_text(get_parent().position, "-%s SN" % amount)
+	text_controller.create_text(get_parent().position, "-%s SN" % amount, "bad")
 	
 func heal(amount):
 	current_sanity += amount
 	var text_controller = get_tree().get_first_node_in_group("text_controller")
-	text_controller.create_text(get_parent().position, "+%s SN" % amount)
+	text_controller.create_text(get_parent().position, "+%s SN" % amount, "good")
 	
 func tick(parent):
 	var map = get_tree().get_first_node_in_group("map")

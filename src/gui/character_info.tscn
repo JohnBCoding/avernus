@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://b388mjim6ixy"]
+
+[ext_resource type="Script" path="res://src/gui/character_info.gd" id="1_gppt0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aihbn"]
+bg_color = Color(0.0156863, 0.0117647, 0.0117647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.631373, 0.239216, 0.231373, 1)
+
+[node name="character_info" type="Control"]
+process_mode = 2
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gppt0")
+
+[node name="main" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 1088.0
+offset_bottom = 640.0
+
+[node name="background" type="Panel" parent="main"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aihbn")
+
+[node name="main_hbox" type="HBoxContainer" parent="main"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="character_box" type="VBoxContainer" parent="main/main_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="class" type="Label" parent="main/main_hbox/character_box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Wanderer"
+horizontal_alignment = 1
+
+[node name="status_box" type="VBoxContainer" parent="main/main_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="status" type="Label" parent="main/main_hbox/status_box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Status"
+horizontal_alignment = 1
+
+[node name="nearby_box" type="VBoxContainer" parent="main/main_hbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="nearby" type="Label" parent="main/main_hbox/nearby_box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Nearby"
+horizontal_alignment = 1
+
+[node name="nearby_list" type="Label" parent="main/main_hbox/nearby_box"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+autowrap_mode = 3

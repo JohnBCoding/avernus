@@ -20,14 +20,20 @@ func tick():
 
 
 func swoop_attack(player):
+	var dir_to = position.direction_to(player.position)
+	var new_pos = player.entity_position.coords - dir_to
+	var map = get_tree().get_first_node_in_group("map")
+	if map.walkable(new_pos):
+		path_to_player()
+		return
+		
 	play_animation("attack")
 	var audio =  get_tree().get_first_node_in_group("audio")
 	audio.play_destroy_vase()
 	
 	# Tween swoop towards player and "bounce" back off
 	var tween = create_tween()
-	var dir_to = position.direction_to(player.position)
-	entity_position.coords = player.entity_position.coords - dir_to
+	entity_position.coords = new_pos
 	tween.tween_property(self, "position", player.position, 0.2).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(self, "position", player.position-(dir_to*8), 0.1).set_trans(Tween.TRANS_BOUNCE)
 	

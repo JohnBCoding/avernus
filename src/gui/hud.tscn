@@ -49,6 +49,7 @@ theme_override_constants/separation = 8
 
 [node name="class" type="Label" parent="parent/main/main_hbox/character"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Unknown"
 horizontal_alignment = 1
@@ -65,6 +66,7 @@ theme_override_constants/separation = 8
 [node name="health" type="Label" parent="parent/main/main_hbox/character/details/status"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Health: 0/0
 "
@@ -72,6 +74,7 @@ text = "Health: 0/0
 [node name="sanity" type="Label" parent="parent/main/main_hbox/character/details/status"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Sanity: 0/0
 "
@@ -83,6 +86,7 @@ theme_override_constants/separation = 8
 [node name="main_hand" type="Label" parent="parent/main/main_hbox/character/details/equipment"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Main Hand(Z): MEET ON STICK
 "
@@ -90,6 +94,7 @@ text = "Main Hand(Z): MEET ON STICK
 [node name="off_hand" type="Label" parent="parent/main/main_hbox/character/details/equipment"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Off Hand(X): None
 "
@@ -102,6 +107,7 @@ theme_override_constants/separation = 32
 [node name="soulmarks" type="Label" parent="parent/main/main_hbox/character/other_details"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Soulmarks: 0
 "
@@ -109,6 +115,7 @@ text = "Soulmarks: 0
 [node name="floor" type="Label" parent="parent/main/main_hbox/character/other_details"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Floor 1
 "
@@ -120,6 +127,7 @@ layout_mode = 2
 [node name="status_text" type="Label" parent="parent/main/main_hbox/status"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Status
 "
@@ -133,7 +141,7 @@ theme_override_constants/separation = 16
 custom_minimum_size = Vector2(272, 0)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(1, 0.584314, 0.52549, 1)
+theme_override_colors/font_color = Color(0.631373, 0.239216, 0.231373, 1)
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 3
 autowrap_mode = 3
@@ -146,6 +154,7 @@ theme_override_constants/separation = 0
 
 [node name="name" type="Label" parent="parent/main/main_hbox/info"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Rat"
 horizontal_alignment = 1
@@ -154,6 +163,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 autowrap_mode = 3
 
@@ -161,5 +171,6 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 10
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 vertical_alignment = 1
