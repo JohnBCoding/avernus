@@ -9,6 +9,9 @@ entity_name = "Hell Bat"
 entity_info = "A ugle hellish bat
 
 "
+mutate_chance = 15
+prefix_chance = 25
+suffix_chance = 20
 IDLE_ANI = "bat_idle"
 ATTACK_ANI = "bat_attack"
 HIT_ANI = "bat_hit"

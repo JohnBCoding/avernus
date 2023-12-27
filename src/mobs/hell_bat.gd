@@ -3,12 +3,18 @@ extends "mob.gd"
 var always_crit = false
 
 func update_floor_mods(floor):
-	if floor > 2:
-		health.update_max(1)
-	
-	if floor > 3:
-		always_crit = true
-		
+	if floor >= 3:
+		if randi_range(1, 100) <= mutate_chance:
+			if randi_range(1, 100) <= prefix_chance:
+				sprite.modulate = Color("#a13d3b")
+				entity_name = "Helltouched " + entity_name
+				entity_info = entity_info + "\nHelltouched: Living in Avernus has augmented this creature in unusual ways."
+				always_crit = true
+			elif randi_range(1, 100) <= suffix_chance:
+				entity_name = entity_name + " Alpha"
+				entity_info = entity_info + "\nAlpha: Strongest of their kind, an alpha won't be as easy to take down."
+				health.update_max(2)
+				
 func tick():
 	var player = get_tree().get_first_node_in_group("player")
 	if entity_position.distance_to(player) == 2:
@@ -17,7 +23,6 @@ func tick():
 	if path_to_player():
 		return true
 	return false
-
 
 func swoop_attack(player):
 	var dir_to = position.direction_to(player.position)

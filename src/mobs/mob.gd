@@ -6,6 +6,9 @@ extends Node2D
 @export var health: Health
 @export var combat: Combat
 @export var status: Status
+@export var mutate_chance: int
+@export var prefix_chance: int
+@export var suffix_chance: int
 @export var IDLE_ANI: String
 @export var ATTACK_ANI: String
 @export var HIT_ANI: String

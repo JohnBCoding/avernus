@@ -10,6 +10,7 @@ var TileType = {
 	STAIRS = Vector2i(5, 30),
 	VASE = Vector2i(4, 29),
 	GOLDVASE = Vector2i(5, 29),
+	DEATH = Vector2i(9, 13),
 	PREFAB_MARKER = Vector2i(0, 19)
 }
 

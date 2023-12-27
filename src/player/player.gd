@@ -107,3 +107,8 @@ func _on_input_timer_timeout():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name != "idle" && anim_name != "death":
 		animation_player.play("idle")
+	elif anim_name == "death":
+		await get_tree().create_timer(2).timeout
+		var map = get_tree().get_first_node_in_group("map")
+		map.set_cell(0, entity_position.coords, 1, map.TileType.DEATH)
+		visible = false

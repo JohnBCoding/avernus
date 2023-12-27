@@ -5,7 +5,11 @@
 
 [node name="hell_rat" instance=ExtResource("1_7va0e")]
 script = ExtResource("2_dit6s")
-entity_info = "A hellish rat"
+entity_name = "Wolf Rat"
+entity_info = "A normal looking rat, besides the whole wolf head thing."
+mutate_chance = 15
+prefix_chance = 20
+suffix_chance = 50
 IDLE_ANI = "rat_idle"
 ATTACK_ANI = "rat_attack"
 HIT_ANI = "rat_hit"
