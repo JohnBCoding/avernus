@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://2tvt0vluc8sk"]
+[gd_scene load_steps=3 format=3 uid="uid://2tvt0vluc8sk"]
 
 [ext_resource type="PackedScene" uid="uid://bikdwvvanhhd1" path="res://src/mobs/mob.tscn" id="1_7va0e"]
+[ext_resource type="Script" path="res://src/mobs/hell_rat.gd" id="2_dit6s"]
 
 [node name="hell_rat" instance=ExtResource("1_7va0e")]
+script = ExtResource("2_dit6s")
+entity_info = "A hellish rat"
 IDLE_ANI = "rat_idle"
 ATTACK_ANI = "rat_attack"
 HIT_ANI = "rat_hit"

@@ -6,6 +6,9 @@
 [node name="hell_bat" instance=ExtResource("1_5d6ic")]
 script = ExtResource("2_t8ccn")
 entity_name = "Hell Bat"
+entity_info = "A ugle hellish bat
+
+"
 IDLE_ANI = "bat_idle"
 ATTACK_ANI = "bat_attack"
 HIT_ANI = "bat_hit"

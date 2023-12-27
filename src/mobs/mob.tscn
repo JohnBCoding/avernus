@@ -302,6 +302,8 @@ z_index = 1
 z_as_relative = false
 script = ExtResource("1_d7by6")
 entity_name = "Hell Rat"
+entity_info = "A ugle hellish rat
+"
 entity_position = NodePath("position")
 health = NodePath("health")
 combat = NodePath("combat")

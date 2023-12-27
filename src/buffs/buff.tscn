@@ -5,6 +5,7 @@
 [node name="buff" type="Node"]
 script = ExtResource("1_3x8ds")
 buff_name = "sane"
+buff_info = "The hellscape has yet to waver your will."
 stats = {
 "armor": -1,
 "extra_damage": 2,

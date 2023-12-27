@@ -8,3 +8,4 @@ script = ExtResource("2_1sp31")
 health_heal_amount = 1
 sanity_heal_amount = 10
 skill_name = "Food"
+skill_info = "Can Be Eaten"

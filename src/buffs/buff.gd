@@ -1,6 +1,7 @@
 extends Node
 
 @export var buff_name: String
+@export_multiline var buff_info: String
 @export var stats: Dictionary
 @export var duration: int
 

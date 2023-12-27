@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var entity_name: String
+@export_multiline var entity_info: String
 @export var entity_position: Position
 @export var health: Health
 @export var combat: Combat

@@ -4,6 +4,7 @@
 
 [node name="insane" instance=ExtResource("1_abg4x")]
 buff_name = "insane"
+buff_info = "You are starting to break, will you become like those around you?"
 stats = {
 "armor": 1
 }
