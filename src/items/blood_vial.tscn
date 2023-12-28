@@ -5,6 +5,6 @@
 
 [node name="blood_vial" instance=ExtResource("1_27dpp")]
 entity_name = "Blood Vial"
-entity_info = "Blood of unknown origins. It will heal you, if you can keep it down.."
+entity_info = "Blood of unknown origins. It will heal you, if you can keep it down.. What's a little sanity gonna matter if your dead?"
 Skill = ExtResource("3_7cxve")
 uses = 1

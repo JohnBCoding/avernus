@@ -32,63 +32,70 @@ offset_bottom = 640.0
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aihbn")
 
-[node name="main_vbox" type="VBoxContainer" parent="main"]
+[node name="main_margin" type="MarginContainer" parent="main"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="main_vbox" type="VBoxContainer" parent="main/main_margin"]
 layout_mode = 2
 
-[node name="main_hbox" type="HBoxContainer" parent="main/main_vbox"]
+[node name="main_hbox" type="HBoxContainer" parent="main/main_margin/main_vbox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 32
 
-[node name="character_box" type="VBoxContainer" parent="main/main_vbox/main_hbox"]
+[node name="character_box" type="VBoxContainer" parent="main/main_margin/main_vbox/main_hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="class" type="Label" parent="main/main_vbox/main_hbox/character_box"]
+[node name="class" type="Label" parent="main/main_margin/main_vbox/main_hbox/character_box"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Wanderer"
 horizontal_alignment = 1
 
-[node name="equipment_box" type="VBoxContainer" parent="main/main_vbox/main_hbox"]
+[node name="equipment_box" type="VBoxContainer" parent="main/main_margin/main_vbox/main_hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="equipment" type="Label" parent="main/main_vbox/main_hbox/equipment_box"]
+[node name="equipment" type="Label" parent="main/main_margin/main_vbox/main_hbox/equipment_box"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Equipment"
 horizontal_alignment = 1
 
-[node name="status_box" type="VBoxContainer" parent="main/main_vbox/main_hbox"]
+[node name="status_box" type="VBoxContainer" parent="main/main_margin/main_vbox/main_hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="status" type="Label" parent="main/main_vbox/main_hbox/status_box"]
+[node name="status" type="Label" parent="main/main_margin/main_vbox/main_hbox/status_box"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Status"
 horizontal_alignment = 1
 
-[node name="nearby_box" type="VBoxContainer" parent="main/main_vbox/main_hbox"]
+[node name="nearby_box" type="VBoxContainer" parent="main/main_margin/main_vbox/main_hbox"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="nearby" type="Label" parent="main/main_vbox/main_hbox/nearby_box"]
+[node name="nearby" type="Label" parent="main/main_margin/main_vbox/main_hbox/nearby_box"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Nearby"
 horizontal_alignment = 1
 
-[node name="info_box" type="VBoxContainer" parent="main/main_vbox"]
+[node name="info_box" type="VBoxContainer" parent="main/main_margin/main_vbox"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="info_name" type="Label" parent="main/main_vbox/info_box"]
+[node name="info_name" type="Label" parent="main/main_margin/main_vbox/info_box"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
@@ -96,7 +103,7 @@ theme_override_font_sizes/font_size = 32
 text = "Test Name"
 horizontal_alignment = 1
 
-[node name="info" type="Label" parent="main/main_vbox/info_box"]
+[node name="info" type="Label" parent="main/main_margin/main_vbox/info_box"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
@@ -104,7 +111,7 @@ theme_override_font_sizes/font_size = 32
 text = "sudo sudo pussy sudo sudop"
 horizontal_alignment = 1
 
-[node name="stats" type="Label" parent="main/main_vbox/info_box"]
+[node name="stats" type="Label" parent="main/main_margin/main_vbox/info_box"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.631373, 0.239216, 0.231373, 1)

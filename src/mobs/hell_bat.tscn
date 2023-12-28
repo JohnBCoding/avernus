@@ -6,8 +6,7 @@
 [node name="hell_bat" instance=ExtResource("1_5d6ic")]
 script = ExtResource("2_t8ccn")
 entity_name = "Hell Bat"
-entity_info = "A ugle hellish bat
-
+entity_info = "A bat that lives in hell. Very hellish.
 "
 mutate_chance = 15
 prefix_chance = 25

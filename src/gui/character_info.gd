@@ -1,12 +1,12 @@
 extends Control
 
-@onready var character_box = $main/main_vbox/main_hbox/character_box
-@onready var equipment_box = $main/main_vbox/main_hbox/equipment_box
-@onready var status_box = $main/main_vbox/main_hbox/status_box
-@onready var nearby_box = $main/main_vbox/main_hbox/nearby_box
-@onready var info_name_label = $main/main_vbox/info_box/info_name
-@onready var info_label = $main/main_vbox/info_box/info
-@onready var info_stats_label = $main/main_vbox/info_box/stats
+@onready var character_box = $main/main_margin/main_vbox/main_hbox/character_box
+@onready var equipment_box = $main/main_margin/main_vbox/main_hbox/equipment_box
+@onready var status_box = $main/main_margin/main_vbox/main_hbox/status_box
+@onready var nearby_box = $main/main_margin/main_vbox/main_hbox/nearby_box
+@onready var info_name_label = $main/main_margin/main_vbox/info_box/info_name
+@onready var info_label = $main/main_margin/main_vbox/info_box/info
+@onready var info_stats_label = $main/main_margin/main_vbox/info_box/stats
 
 var col_selected = 0
 var row_selected = 0
@@ -23,7 +23,7 @@ func _ready():
 	for key in player.status.stats.keys():
 		var new_label = Label.new()
 		new_label.add_theme_font_size_override("font_size", 32)
-		new_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		new_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		new_label.text = "%s: %s" % [key.capitalize(), player.status.stats[key]]
 		character_box.add_child(new_label)
 	

@@ -7,4 +7,5 @@
 script = ExtResource("2_qa7gx")
 health_heal_amount = 5
 sanity_damage_amount = 3
-skill_name = "CursedHeal"
+skill_name = "Draining Heal"
+skill_info = "Drains sanity to restore health"
