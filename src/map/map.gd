@@ -3,6 +3,7 @@ extends TileMap
 @export var width: int
 @export var height: int
 @onready var spawner = $spawner
+@onready var full_prefabs = [preload("res://src/map/prefabs/full/loot_n_mobs.tscn"), preload("res://src/map/prefabs/full/tunnels_n_rooms.tscn")]
 
 var TileType = {
 	FLOOR = Vector2i(0, 28),
@@ -10,13 +11,15 @@ var TileType = {
 	STAIRS = Vector2i(5, 30),
 	VASE = Vector2i(4, 29),
 	GOLDVASE = Vector2i(5, 29),
+	CHEST = Vector2i(9, 7),
 	DEATH = Vector2i(9, 13),
 	PREFAB_MARKER = Vector2i(0, 19)
 }
 
 var WALKABLE_TILES = [TileType.FLOOR]
-var BLOCKABLE_TILES = [TileType.MOUNTAIN, TileType.VASE, TileType.GOLDVASE]
+var BLOCKABLE_TILES = [TileType.MOUNTAIN, TileType.VASE, TileType.GOLDVASE, TileType.CHEST]
 var BLOCKSITE_TILES = [TileType.MOUNTAIN]
+
 @onready var fov = $fov
 var astar = AStarGrid2D.new()
 var current_floor = 1
@@ -59,7 +62,8 @@ func next_floor():
 	if current_floor < 4:
 		generate_cave()
 	else:
-		load_prefab()
+		load_prefab(full_prefabs[randi_range(0, len(full_prefabs)-1)], Vector2.ZERO)
+		
 	init_astar()
 	fov.setup(width, height)
 	var player = get_tree().get_first_node_in_group("player")
@@ -95,6 +99,12 @@ func check_tile_interaction(pos, tile):
 			var audio = get_tree().get_first_node_in_group("audio")
 			audio.play_destroy_vase()
 			return true
+		TileType.CHEST:
+			set_cell(0, pos, 1, TileType.FLOOR)
+			spawner.spawn_chest_item(self, pos)
+			var audio = get_tree().get_first_node_in_group("audio")
+			audio.play_destroy_vase()
+			return true
 			
 	return false
 
@@ -106,8 +116,7 @@ func check_tile_interaction(pos, tile):
 @export var CA_OBJ_SPAWN_AMOUNT: int
 @export var CA_MIN_OPEN_PERCENT: float
 
-func load_prefab():
-	var prefab = load("res://src/map/prefabs/prefab.tscn")
+func load_prefab(prefab, pos):
 	var loaded = prefab.instantiate()
 	var player_spawn_loc = null
 	var mob_spawn_locs = []
@@ -262,7 +271,10 @@ func spawn_obj_area():
 	if len(spawn_locations) > 0:
 		for i in range(CA_OBJ_SPAWN_AMOUNT):
 			var random_index = randi_range(0, len(spawn_locations)-1)
-			set_cell(0, spawn_locations[random_index], 1, TileType.VASE if randi_range(0, 10) < 8 else TileType.GOLDVASE)
+			if randi_range(1, 10) > 1:
+				set_cell(0, spawn_locations[random_index], 1, TileType.VASE if randi_range(0, 10) < 8 else TileType.GOLDVASE)
+			else:
+				set_cell(0, spawn_locations[random_index], 1, TileType.CHEST)
 
 func get_free_areas_near_wall():
 	var spawn_locations = get_used_cells_by_id(0, 1, TileType.FLOOR)
