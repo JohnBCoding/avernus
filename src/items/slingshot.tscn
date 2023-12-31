@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds3u5ejokq5ih"]
+
+[ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_5t1hi"]
+
+[node name="slingshot" instance=ExtResource("1_5t1hi")]
+entity_name = "Slingshot"
+entity_info = "At least ammo isn't a worry."
+stats = {
+"attack_range": 2,
+"crit_chance": 10,
+"ranged_damage": 1
+}
+uses = -1
+glow = true
+
+[node name="sprite" parent="." index="0"]
+frame = 118

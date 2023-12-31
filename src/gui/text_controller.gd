@@ -5,13 +5,13 @@ extends Node2D
 func _ready():
 	add_to_group("text_controller")
 
-func create_text(pos, text, type):
+func create_text(pos, text, type, big=false):
 	var wait = false
 	if get_child_count() > 0:
 		wait = true
 	
 	var new_text = Text.instantiate()
 	add_child(new_text)
-	new_text.start(pos, text, type, wait)
+	new_text.start(pos, text, type, big, wait)
 	
 

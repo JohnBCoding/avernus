@@ -15,8 +15,11 @@ func calculate_stats(parent):
 		health = parent.health.max_health,
 		sanity_threshold = parent.sanity.sanity_check if parent.is_in_group("player") else 0,
 		sight_range = 4,
+		attack_range = 0,
 		melee_damage = parent.combat.melee_damage,
+		ranged_damage = parent.combat.ranged_damage,
 		extra_damage = 0,
+		crit_chance = parent.combat.crit_chance,
 		armor = parent.combat.armor
 	}
 	

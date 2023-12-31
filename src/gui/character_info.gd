@@ -95,9 +95,10 @@ func _process(_delta):
 				info_name_label.text = equip_list[row_selected].entity_name.capitalize()
 				info_label.text = equip_list[row_selected].entity_info
 				var stats_text = ""
-				var skill = equip_list[row_selected].Skill.instantiate()
-				var skill_text = "\n%s: %s" % [skill.skill_name, skill.skill_info]
-				info_label.text += skill_text
+				if equip_list[row_selected].Skill:
+					var skill = equip_list[row_selected].Skill.instantiate()
+					var skill_text = "\n%s: %s" % [skill.skill_name, skill.skill_info]
+					info_label.text += skill_text
 				for key in equip_list[row_selected].stats.keys():
 					stats_text += "%s %s%s | " % [key.capitalize(), "+" if equip_list[row_selected].stats[key] > 0 else "", equip_list[row_selected].stats[key]]
 				info_stats_label.text = stats_text

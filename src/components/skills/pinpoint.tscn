@@ -6,4 +6,5 @@
 [node name="pinpoint" instance=ExtResource("1_q13ve")]
 script = ExtResource("2_k7bm8")
 skill_name = "Pinpoint"
+skill_info = "Guarantee a melee critical hit in a given direction."
 requires_targeting = true

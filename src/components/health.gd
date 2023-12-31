@@ -9,11 +9,11 @@ func _ready():
 	current_health = base_health
 	max_health = base_health
 
-func damage(amount):
+func damage(amount, crit):
 	current_health = max(0, current_health-amount)
 	
 	var text_controller = get_tree().get_first_node_in_group("text_controller")
-	text_controller.create_text(get_parent().position, "-%s" % amount, "bad" if get_parent().is_in_group("player") else "good")
+	text_controller.create_text(get_parent().position, "-%s" % amount, "bad" if get_parent().is_in_group("player") else "good", crit)
 	
 	# return true if dead
 	if current_health == 0:

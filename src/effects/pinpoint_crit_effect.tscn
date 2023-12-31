@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7aa0i3y6l2v6"]
+
+[ext_resource type="Script" path="res://src/effects/effect.gd" id="1_dbx1u"]
+
+[sub_resource type="Curve" id="Curve_3xg78"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kxty2"]
+curve = SubResource("Curve_3xg78")
+
+[sub_resource type="Curve" id="Curve_fl8x6"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_24ere"]
+curve = SubResource("Curve_fl8x6")
+
+[sub_resource type="Gradient" id="Gradient_x2gnl"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mt4p0"]
+gradient = SubResource("Gradient_x2gnl")
+
+[sub_resource type="Curve" id="Curve_tk5nx"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dde0h"]
+curve = SubResource("Curve_tk5nx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mnrkd"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 0, 0)
+spread = 50.0
+angular_velocity_max = 50.0
+angular_velocity_curve = SubResource("CurveTexture_kxty2")
+orbit_velocity_max = 100.0
+radial_velocity_min = 10.0
+radial_velocity_max = 40.0
+radial_velocity_curve = SubResource("CurveTexture_dde0h")
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
+color = Color(0.976471, 0.960784, 0.937255, 1)
+color_ramp = SubResource("GradientTexture1D_mt4p0")
+anim_speed_max = 1.0
+anim_speed_curve = SubResource("CurveTexture_24ere")
+
+[node name="pinpoint_crit_effect" type="GPUParticles2D"]
+self_modulate = Color(0.976471, 0.960784, 0.937255, 1)
+top_level = true
+z_index = 100
+z_as_relative = false
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_mnrkd")
+lifetime = 0.2
+one_shot = true
+preprocess = 0.5
+speed_scale = 0.5
+explosiveness = 0.2
+visibility_rect = Rect2(0, 0, 8, 8)
+local_coords = true
+script = ExtResource("1_dbx1u")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
