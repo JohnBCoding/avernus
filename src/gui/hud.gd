@@ -56,7 +56,7 @@ func _process(delta):
 				info_name.text = item.entity_name
 				info_info.text = item.entity_info
 				if item.skill:
-					info_tags.text = "\n%s %s" % [item.skill.skill_name, "Targeted" if item.skill.requires_targeting else ""]
+					info_tags.text = "%s %s" % [item.skill.skill_name, "Targeted" if item.skill.requires_targeting else ""]
 				break
 		
 		# Update soulmarks

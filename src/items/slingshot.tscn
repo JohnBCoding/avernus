@@ -5,15 +5,14 @@
 
 [node name="slingshot" instance=ExtResource("1_5t1hi")]
 entity_name = "Slingshot"
-entity_info = "At least ammo isn't a worry."
+entity_info = "Good for slinging rocks at pesky giants."
 Skill = ExtResource("2_goiao")
 stats = {
-"attack_range": 2,
-"crit_chance": 10,
+"attack_range": 1,
+"crit_chance": 5,
 "ranged_damage": 1
 }
-uses = -1
-glow = true
+uses = 5
 
 [node name="sprite" parent="." index="0"]
 frame = 118

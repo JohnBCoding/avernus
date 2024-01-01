@@ -45,7 +45,6 @@ theme_override_constants/separation = 0
 [node name="character" type="VBoxContainer" parent="parent/main/main_hbox"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
-theme_override_constants/separation = 8
 
 [node name="class" type="Label" parent="parent/main/main_hbox/character"]
 layout_mode = 2
@@ -166,11 +165,13 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 autowrap_mode = 3
+justification_flags = 131
+text_overrun_behavior = 3
 
 [node name="tags" type="Label" parent="parent/main/main_hbox/info"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_vertical = 10
-theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.631373, 0.239216, 0.231373, 1)
 theme_override_font_sizes/font_size = 32
 vertical_alignment = 1

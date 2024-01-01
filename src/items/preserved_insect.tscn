@@ -5,7 +5,7 @@
 
 [node name="preserved_insect" instance=ExtResource("1_58k7n")]
 entity_name = "Preserved Insect"
-entity_info = "Surely this isn't preserved for its taste..."
+entity_info = "Surely this isn't preserved for its taste.."
 Skill = ExtResource("2_2nemk")
 uses = 1
 

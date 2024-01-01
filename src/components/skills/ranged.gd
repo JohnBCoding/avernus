@@ -13,6 +13,6 @@ func activate(parent, dir=null):
 			parent.add_child(effect)
 			effect.emitting = true
 			parent.combat.deal_damage(parent, blocker, "ranged")
-			print(blocker)
-			print(typeof(blocker))
-		break
+			var audio = get_tree().get_first_node_in_group("audio")
+			audio.play_basic_hit()
+			break

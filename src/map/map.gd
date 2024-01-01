@@ -243,6 +243,7 @@ func generate_cave():
 	var player = get_tree().get_first_node_in_group("player")
 	if !player:
 		spawner.spawn_player(self, player_spawn_loc)
+		spawn_player_chest(player_spawn_loc)
 	else:
 		player.entity_position.coords = Vector2(player_spawn_loc)
 		player.position = player_spawn_loc * 8
@@ -270,12 +271,20 @@ func spawn_obj_area():
 	var spawn_locations = get_free_areas_near_wall()
 	if len(spawn_locations) > 0:
 		for i in range(CA_OBJ_SPAWN_AMOUNT):
+			# First spawn needs to be near player so they get an item to start
 			var random_index = randi_range(0, len(spawn_locations)-1)
 			if randi_range(1, 10) > 1:
 				set_cell(0, spawn_locations[random_index], 1, TileType.VASE if randi_range(0, 10) < 8 else TileType.GOLDVASE)
 			else:
 				set_cell(0, spawn_locations[random_index], 1, TileType.CHEST)
 
+func spawn_player_chest(player_spawn_pos):
+	var spawn_locations = get_used_cells_by_id(0, 1, TileType.FLOOR)
+	for pos in spawn_locations:
+		if Vector2(player_spawn_pos).distance_to(pos) == 1:
+			set_cell(0, pos, 1, TileType.CHEST)
+			break
+			
 func get_free_areas_near_wall():
 	var spawn_locations = get_used_cells_by_id(0, 1, TileType.FLOOR)
 	var near_wall_locs = []

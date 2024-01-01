@@ -43,4 +43,4 @@ func swoop_attack(player):
 	tween.tween_property(self, "position", player.position-(dir_to*8), 0.1).set_trans(Tween.TRANS_BOUNCE)
 	
 	# Deal damage
-	combat.deal_damage(self, player, always_crit)
+	combat.deal_damage(self, player, "melee", always_crit)

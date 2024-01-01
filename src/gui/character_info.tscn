@@ -104,12 +104,14 @@ text = "Test Name"
 horizontal_alignment = 1
 
 [node name="info" type="Label" parent="main/main_margin/main_vbox/info_box"]
+custom_minimum_size = Vector2(990, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.937255, 1)
 theme_override_font_sizes/font_size = 32
 text = "sudo sudo pussy sudo sudop"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="stats" type="Label" parent="main/main_margin/main_vbox/info_box"]
 layout_mode = 2

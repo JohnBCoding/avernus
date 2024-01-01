@@ -3,6 +3,7 @@ class_name Combat
 
 @export var melee_damage: int
 @export var ranged_damage: int
+@export var attack_range: int
 @export var crit_chance: int
 @export var armor: int
 

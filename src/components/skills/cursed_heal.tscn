@@ -7,5 +7,5 @@
 script = ExtResource("2_qa7gx")
 health_heal_amount = 5
 sanity_damage_amount = 3
-skill_name = "Draining Heal"
+skill_name = "Brain Drain"
 skill_info = "Drains a portion of sanity to restore health."

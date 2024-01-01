@@ -101,6 +101,7 @@ func _process(_delta):
 					info_label.text += skill_text
 				for key in equip_list[row_selected].stats.keys():
 					stats_text += "%s %s%s | " % [key.capitalize(), "+" if equip_list[row_selected].stats[key] > 0 else "", equip_list[row_selected].stats[key]]
+				stats_text += "Uses %s" % (equip_list[row_selected].uses if equip_list[row_selected].uses != -1 else "Unlimited")
 				info_stats_label.text = stats_text
 		2:
 			status_box.modulate.a = 1
