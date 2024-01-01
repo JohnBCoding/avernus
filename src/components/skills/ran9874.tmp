@@ -5,6 +5,4 @@
 
 [node name="ranged" instance=ExtResource("1_mkwkr")]
 script = ExtResource("2_h8ph5")
-skill_name = "Ranged"
-skill_info = "Perform a ranged attack in a given direction."
-requires_targeting = true
+skill_name = ""

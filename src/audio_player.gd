@@ -6,6 +6,7 @@ extends Node
 @onready var basic_hit = $basic_hit_sound
 @onready var player_damaged_sound = $player_damaged_sound
 @onready var destroy_vase_sound = $destroy_vase_sound
+@onready var open_chest_sound = $open_chest_sound
 
 func _ready():
 	add_to_group("audio")
@@ -40,3 +41,6 @@ func play_player_damaged():
 	
 func play_destroy_vase():
 	destroy_vase_sound.play()
+	
+func play_open_chest():
+	open_chest_sound.play()

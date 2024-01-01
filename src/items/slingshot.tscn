@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds3u5ejokq5ih"]
+[gd_scene load_steps=3 format=3 uid="uid://ds3u5ejokq5ih"]
 
 [ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_5t1hi"]
+[ext_resource type="PackedScene" uid="uid://d0jyqobgomfdc" path="res://src/components/skills/ranged.tscn" id="2_goiao"]
 
 [node name="slingshot" instance=ExtResource("1_5t1hi")]
 entity_name = "Slingshot"
 entity_info = "At least ammo isn't a worry."
+Skill = ExtResource("2_goiao")
 stats = {
 "attack_range": 2,
 "crit_chance": 10,

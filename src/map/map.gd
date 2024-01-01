@@ -103,7 +103,7 @@ func check_tile_interaction(pos, tile):
 			set_cell(0, pos, 1, TileType.FLOOR)
 			spawner.spawn_chest_item(self, pos)
 			var audio = get_tree().get_first_node_in_group("audio")
-			audio.play_destroy_vase()
+			audio.play_open_chest()
 			return true
 			
 	return false
