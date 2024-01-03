@@ -23,4 +23,5 @@ autoplay = "bat_idle"
 base_health = 1
 
 [node name="combat" parent="." index="4"]
+crit_chance = 10
 armor = 3

@@ -17,3 +17,6 @@ DEATH_ANI = "rat_death"
 
 [node name="animation_player" parent="." index="1"]
 autoplay = "rat_idle"
+
+[node name="combat" parent="." index="4"]
+crit_chance = 1

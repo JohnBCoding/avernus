@@ -47,6 +47,7 @@ func tick():
 			if current.is_in_group("player"):
 				# Game over
 				if current.health.current_health <= 0:
+					current.can_input = false
 					current.animation_player.play("death")
 					var world = get_tree().get_first_node_in_group("world")
 					world.state = world.WorldState.GameOver

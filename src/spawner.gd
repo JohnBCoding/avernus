@@ -3,7 +3,7 @@ extends Node
 @onready var Player = preload("res://src/player/player.tscn")
 @onready var mob_spawn_table = [[preload("res://src/mobs/hell_rat.tscn"), 20], [preload("res://src/mobs/hell_bat.tscn"), 3]]
 @onready var base_item_spawn_table = [[preload("res://src/items/slingshot.tscn"), 5], [preload("res://src/items/shiv.tscn"), 15], [preload("res://src/items/preserved_insect.tscn"), 1],
-	[preload("res://src/items/soulmark.tscn"), 5], [preload("res://src/items/blood_vial.tscn"), 1110], [preload("res://src/items/meat_on_stick.tscn"), 75]]
+	[preload("res://src/items/soulmark.tscn"), 5], [preload("res://src/items/blood_vial.tscn"), 20], [preload("res://src/items/meat_on_stick.tscn"), 75]]
 @onready var chest_item_spawn_table = [[preload("res://src/items/slingshot.tscn"), 10], [preload("res://src/items/wooden_shield.tscn"), 10], [preload("res://src/items/preserved_insect.tscn"), 15], 
 	[preload("res://src/items/shiv.tscn"), 20]]
 
@@ -21,7 +21,7 @@ func spawn_mob(parent, pos, floor):
 
 func spawn_random_item(parent, pos):
 	var current_floor = get_tree().get_first_node_in_group("map").current_floor
-	var item_chance = max(25, 100-(current_floor*4))
+	var item_chance = max(25, 100-(current_floor*15))
 	if randi_range(1, 100) <= item_chance:
 		var random_item = get_random_from_table(base_item_spawn_table)
 		var item = random_item.instantiate()
