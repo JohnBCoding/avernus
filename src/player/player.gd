@@ -67,6 +67,8 @@ func handle_input():
 			# Check picking up item
 			for item in get_tree().get_nodes_in_group("item"):
 				if item.entity_position.coords == entity_position.coords:
+					var text_controller = get_tree().get_first_node_in_group("text_controller")
+					text_controller.create_text(position, "+%s" % item.entity_name, "good", false)
 					if item.entity_name == "Soulmark":
 						soulmarks += 1
 						item.queue_free()

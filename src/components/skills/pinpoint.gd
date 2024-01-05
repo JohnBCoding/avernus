@@ -4,7 +4,7 @@ extends "skill.gd"
 
 func activate(parent, dir=null):
 	var part = particle.instantiate()
-	part.position = parent.position + (dir * 8) + Vector2(4, 4)
+	part.position = parent.position + (dir * 8)
 	parent.add_child(part)
 	part.emitting = true
 	var map = get_tree().get_first_node_in_group("map")

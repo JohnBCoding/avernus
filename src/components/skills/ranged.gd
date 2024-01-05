@@ -8,7 +8,7 @@ func activate(parent, dir=null):
 		var blocker = map.walkable(parent.entity_position.coords + (dir * i))
 		if blocker && typeof(blocker) != TYPE_VECTOR2I:
 			var effect = effect.instantiate()
-			effect.position = blocker.position + (dir * 8) + Vector2(4, 4)
+			effect.position = blocker.position + (dir * 8)
 			effect.rotation = parent.position.angle_to_point(blocker.position)
 			parent.add_child(effect)
 			effect.emitting = true

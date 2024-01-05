@@ -5,10 +5,11 @@ extends Node
 @export var stats: Dictionary
 @export var duration: int
 
-func tick(_parent):
+func tick(parent):
 	if duration == -1:
 		return
 	
 	duration -= 1
 	if duration == 0:
+		parent.status.buffs.erase(self)
 		queue_free()

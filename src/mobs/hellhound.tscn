@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnkcvqcaikq2s"]
+
+[ext_resource type="PackedScene" uid="uid://bikdwvvanhhd1" path="res://src/mobs/mob.tscn" id="1_644k1"]
+[ext_resource type="Script" path="res://src/mobs/hellhound.gd" id="2_btic8"]
+
+[node name="hellhound" instance=ExtResource("1_644k1")]
+script = ExtResource("2_btic8")
+entity_name = "Hellhound"
+entity_info = "An ugly dog lol"
+mutate_chance = 50
+prefix_chance = 25
+suffix_chance = 25
+IDLE_ANI = "hellhound_idle"
+ATTACK_ANI = "hellhound_attack"
+HIT_ANI = "hellhound_hit"
+DEATH_ANI = "hellhound_death"
+
+[node name="animation_player" parent="." index="1"]
+autoplay = "hellhound_idle"
+
+[node name="health" parent="." index="3"]
+base_health = 4

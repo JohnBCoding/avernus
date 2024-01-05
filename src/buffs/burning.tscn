@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2a8exhijhpdf"]
+
+[ext_resource type="PackedScene" uid="uid://dbrqln8pv4n68" path="res://src/buffs/buff.tscn" id="1_2mdrg"]
+[ext_resource type="Script" path="res://src/buffs/burning.gd" id="2_36o2h"]
+
+[node name="burning" instance=ExtResource("1_2mdrg")]
+script = ExtResource("2_36o2h")
+buff_name = "burning"
+buff_info = "You are on fire and will take fire damage every turn."
+stats = {}
+duration = 0

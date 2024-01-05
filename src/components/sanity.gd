@@ -45,7 +45,7 @@ func tick(parent):
 		parent.status.buffs.push_front(buff)
 		
 		var text_controller = get_tree().get_first_node_in_group("text_controller")
-		text_controller.create_text(parent.position, "+INSANE")
+		text_controller.create_text(parent.position, "+INSANE", "bad")
 		
 	elif current_sanity > sanity_check && !sane:
 		sane = true

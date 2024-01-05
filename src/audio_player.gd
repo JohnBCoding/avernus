@@ -29,8 +29,7 @@ func play_dead():
 
 func play_walk():
 	walk_sound.play()
-
-func stop_walk():
+	await get_tree().create_timer(0.2).timeout
 	walk_sound.stop()
 	
 func play_basic_hit():

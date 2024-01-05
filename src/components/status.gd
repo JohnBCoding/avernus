@@ -35,3 +35,12 @@ func calculate_stats(parent):
 	for buff in buffs:
 		for key in buff.stats.keys():
 			stats[key] += buff.stats[key]
+			
+func add_buff(buff_scene):
+	var new_buff = buff_scene.instantiate()
+	for buff in buffs:
+		if new_buff.name == buff.buff_name:
+			buffs.erase(buff)
+			break
+	
+	buffs.push_back(new_buff)

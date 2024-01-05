@@ -26,10 +26,13 @@ func deal_damage(parent, target, attack_type="melee", crit=false):
 		
 	# Extra damage is added in after crit calculation
 	damage += parent.status.stats.extra_damage
-	target.combat.take_damage(target, damage, crit)
+	target.combat.take_damage(target, damage, "physical", crit)
 	
-func take_damage(parent, damage, crit):
-	var reduce_damage = max(0, damage - parent.status.stats.armor)
+func take_damage(parent, damage, damage_type, crit):
+	var reduce_damage = 0
+	match damage_type:
+		"physical": reduce_damage = max(0, damage - parent.status.stats.armor)
+		"fire": reduce_damage = max(0, damage)
 	if parent.health.damage(reduce_damage, crit):
 		if !parent.is_in_group("player"):
 			parent.play_animation("death")

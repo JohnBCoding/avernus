@@ -70,6 +70,12 @@ func tick():
 						ani_timer.wait_time = 0.15
 					else:
 						ani_timer.wait_time = 0.0001
+				elif !current.visible && current.is_in_group("demon"):
+					var player = get_tree().get_first_node_in_group("player")
+					if !player.sanity.sane:
+						current.tick()
+					# Since they are out of view we do not care to wait for their animations as they won't be seen.
+					ani_timer.wait_time = 0.0001
 				else:
 					if current.health.current_health > 0:
 						ani_timer.wait_time = 0.0001
