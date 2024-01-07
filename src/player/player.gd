@@ -13,11 +13,14 @@ extends Node2D
 var soulmarks = 0
 var in_combat = false
 var can_input = true
+var audio = null
 
 func _ready():
 	add_to_group("player")
 	status.buffs.push_back(load("res://src/buffs/buff.tscn").instantiate())
 	status.calculate_stats(self)
+	
+	audio = get_tree().get_first_node_in_group("audio")
 
 func handle_input():
 	if can_input:
@@ -69,11 +72,15 @@ func handle_input():
 				if item.entity_position.coords == entity_position.coords:
 					var text_controller = get_tree().get_first_node_in_group("text_controller")
 					text_controller.create_text(position, "+%s" % item.entity_name, "good", false)
+					audio.play_pickup_item()
 					if item.entity_name == "Soulmark":
 						soulmarks += 1
 						item.queue_free()
 					else:
-						item.pickup(self)
+						if item.auto_use:
+							item.use(self)
+						else:
+							item.pickup(self)
 					return "pickup"
 		
 		elif Input.is_action_just_pressed("use_main"):

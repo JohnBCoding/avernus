@@ -3,6 +3,7 @@ class_name Equipment
 
 var main_hand = null
 var off_hand = null
+var stackable = []
 
 func equip(parent, item):
 	if !main_hand:

@@ -57,6 +57,9 @@ func _process(delta):
 				info_info.text = item.entity_info
 				if item.skill:
 					info_tags.text = "%s %s" % [item.skill.skill_name, "Targeted" if item.skill.requires_targeting else ""]
+				if item.auto_use:
+					info_tags.text += "Stackable"
+					
 				break
 		
 		# Update soulmarks

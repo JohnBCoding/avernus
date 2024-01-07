@@ -27,7 +27,7 @@ func _ready():
 		new_label.text = "%s: %s" % [key.capitalize(), player.status.stats[key]]
 		character_box.add_child(new_label)
 	
-	if player.equipment.main_hand:
+	if is_instance_valid(player.equipment.main_hand):
 		var new_label = Label.new()
 		new_label.add_theme_font_size_override("font_size", 32)
 		new_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -36,7 +36,7 @@ func _ready():
 		equip_labels.push_back(new_label)
 		equip_list.push_back(player.equipment.main_hand)
 		
-	if player.equipment.off_hand:
+	if is_instance_valid(player.equipment.off_hand):
 		var new_label = Label.new()
 		new_label.add_theme_font_size_override("font_size", 32)
 		new_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -44,6 +44,30 @@ func _ready():
 		equipment_box.add_child(new_label)
 		equip_labels.push_back(new_label)
 		equip_list.push_back(player.equipment.off_hand)
+	
+	for stack in player.equipment.stackable:
+		# Show number of stacked equipment if they are the same
+		var exists = false
+		for label in equip_labels:
+			var text = label.text.split(" x ", false, 1)
+			var item_name = text[0]
+			var stack_num = 1
+			if len(text) > 1:
+				stack_num = int(text[1])
+			if item_name == stack.entity_name:
+				label.text = "%s x %s" % [item_name, stack_num+1]
+				exists = true
+				break
+		
+		# If none of the same exists then create a new label
+		if !exists:
+			var new_label = Label.new()
+			new_label.add_theme_font_size_override("font_size", 32)
+			new_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			new_label.text = "%s" % stack.entity_name
+			equipment_box.add_child(new_label)
+			equip_labels.push_back(new_label)
+			equip_list.push_back(stack)
 		
 	for buff in player.status.buffs:
 		var new_label = Label.new()
@@ -99,9 +123,18 @@ func _process(_delta):
 					var skill = equip_list[row_selected].Skill.instantiate()
 					var skill_text = "\n%s: %s" % [skill.skill_name, skill.skill_info]
 					info_label.text += skill_text
+				
+				var key_num = len(equip_list[row_selected].stats.keys())
 				for key in equip_list[row_selected].stats.keys():
-					stats_text += "%s %s%s | " % [key.capitalize(), "+" if equip_list[row_selected].stats[key] > 0 else "", equip_list[row_selected].stats[key]]
-				stats_text += "Uses %s" % (equip_list[row_selected].uses if equip_list[row_selected].uses != -1 else "Unlimited")
+					stats_text += "%s %s%s" % [key.capitalize(), "+" if equip_list[row_selected].stats[key] > 0 else "", equip_list[row_selected].stats[key]]
+					key_num -= 1
+					if key_num != 0:
+						stats_text += " | "
+						
+				if !equip_list[row_selected].auto_use:
+					stats_text += " | Uses %s" % (equip_list[row_selected].uses if equip_list[row_selected].uses != -1 else "Unlimited")
+				
+				# Set generated text on label
 				info_stats_label.text = stats_text
 		2:
 			status_box.modulate.a = 1
@@ -119,8 +152,12 @@ func _process(_delta):
 				info_name_label.text = buff_list[row_selected].buff_name.capitalize()
 				info_label.text = buff_list[row_selected].buff_info
 				var stats_text = ""
+				var key_num = len(buff_list[row_selected].stats.keys())
 				for key in buff_list[row_selected].stats.keys():
-					stats_text += "%s %s%s | " % [key.capitalize(), "+" if buff_list[row_selected].stats[key] > 0 else "", buff_list[row_selected].stats[key]]
+					stats_text += "%s %s%s" % [key.capitalize(), "+" if buff_list[row_selected].stats[key] > 0 else "", buff_list[row_selected].stats[key]]
+					key_num -= 1
+					if key_num != 0:
+						stats_text += " | "
 				info_stats_label.text = stats_text
 		3:
 			nearby_box.modulate.a = 1

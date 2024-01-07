@@ -43,6 +43,9 @@ func tick():
 	if path_to_player():
 		return true
 	return false
+	
+func finish_tick():
+	status.tick(self)
 
 func path_to_player():
 	var map = get_tree().get_nodes_in_group("map")[0]

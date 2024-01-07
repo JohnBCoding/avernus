@@ -68,6 +68,7 @@ func tick():
 					# otherwise, don't wait
 					if current.tick():
 						ani_timer.wait_time = 0.15
+						current.finish_tick()
 					else:
 						ani_timer.wait_time = 0.0001
 				elif !current.visible && current.is_in_group("demon"):

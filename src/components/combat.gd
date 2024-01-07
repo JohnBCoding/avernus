@@ -7,6 +7,17 @@ class_name Combat
 @export var crit_chance: int
 @export var armor: int
 
+@onready var Burning = preload("res://src/buffs/burning.tscn")
+
+func check_on_hit(parent, target, crit):
+	if parent.status.stats.burn_chance > 0:
+		if crit || randi_range(1, 100) <= parent.status.stats.burn_chance:
+			var new_effect = load("res://src/effects/burning_effect.tscn").instantiate()
+			new_effect.position = target.entity_position.coords * 8
+			target.add_child(new_effect)
+			new_effect.emitting = true
+			target.status.add_buff(Burning)
+		
 func deal_damage(parent, target, attack_type="melee", crit=false):
 	var damage = 0
 	match attack_type:
@@ -23,6 +34,8 @@ func deal_damage(parent, target, attack_type="melee", crit=false):
 		if randi_range(1, 100) <= parent.status.stats.crit_chance:
 			damage *= 2
 			crit = true
+	
+	check_on_hit(parent, target, crit)
 		
 	# Extra damage is added in after crit calculation
 	damage += parent.status.stats.extra_damage

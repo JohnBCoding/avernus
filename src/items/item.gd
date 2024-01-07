@@ -6,6 +6,7 @@ extends Node2D
 @export var Skill: PackedScene
 @export var stats: Dictionary
 @export var uses: int
+@export var auto_use: bool
 @export var glow: bool
 @onready var animation_player = $animation_player
 @onready var Targeting = preload("res://src/gui/targeting.tscn")
@@ -48,7 +49,14 @@ func use(parent):
 				if uses <= 0:
 					queue_free()
 					return false
-
+	elif auto_use:
+		parent.equipment.stackable.push_back(self)
+		visible = false
+		position = Vector2(-80, -80)
+		entity_position.coords = Vector2(-1, -1)
+		picked_up = true
+		return false
+		
 	return true
 		
 	

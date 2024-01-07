@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbeion7bcwyyx"]
+[gd_scene load_steps=2 format=3 uid="uid://dbeion7bcwyyx"]
 
 [ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_58k7n"]
-[ext_resource type="PackedScene" uid="uid://cyq04ugf424mw" path="res://src/components/skills/vitality.tscn" id="2_2nemk"]
 
 [node name="preserved_insect" instance=ExtResource("1_58k7n")]
 entity_name = "Preserved Insect"
 entity_info = "Surely this isn't preserved for its taste.."
-Skill = ExtResource("2_2nemk")
+stats = {
+"health": 5
+}
 uses = 1
+auto_use = true
 
 [node name="sprite" parent="." index="0"]
 frame = 96

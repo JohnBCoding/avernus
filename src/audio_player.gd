@@ -7,6 +7,7 @@ extends Node
 @onready var player_damaged_sound = $player_damaged_sound
 @onready var destroy_vase_sound = $destroy_vase_sound
 @onready var open_chest_sound = $open_chest_sound
+@onready var pickup_item_sound = $pickup_item_sound
 
 func _ready():
 	add_to_group("audio")
@@ -31,6 +32,11 @@ func play_walk():
 	walk_sound.play()
 	await get_tree().create_timer(0.2).timeout
 	walk_sound.stop()
+	
+func play_pickup_item():
+	pickup_item_sound.play()
+	await get_tree().create_timer(0.2).timeout
+	pickup_item_sound.stop()
 	
 func play_basic_hit():
 	basic_hit.play()

@@ -2,7 +2,7 @@ extends "buff.gd"
 
 func tick(parent):
 	if duration == -1:
-		duration = parent.status.stats.armor
+		duration = max(1, parent.status.stats.armor)
 	
 	parent.combat.take_damage(parent, 1, "fire", false)
 	var new_effect = load("res://src/effects/burning_effect.tscn").instantiate()
