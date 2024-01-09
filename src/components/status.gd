@@ -4,11 +4,23 @@ class_name Status
 var stats = {}
 var buffs = []
 
+var regen_counter = 0
+
 func tick(parent):
 	calculate_stats(parent)
 	for buff in buffs:
 		buff.tick(parent)
+	tick_regen(parent)
 
+func tick_regen(parent):
+	regen_counter += 1
+	if regen_counter >= 10:
+		regen_counter = 0
+		if stats.health_recovery > 0:
+			parent.health.heal(stats.health_recovery)
+		if stats.sanity_recovery > 0:
+			parent.sanity.heal(stats.sanity_recovery)
+		
 func calculate_stats(parent):
 	# Base
 	stats = {
@@ -20,8 +32,10 @@ func calculate_stats(parent):
 		ranged_damage = parent.combat.ranged_damage,
 		extra_damage = 0,
 		crit_chance = parent.combat.crit_chance,
-		burn_chance = 125,
-		armor = parent.combat.armor
+		burn_chance = parent.combat.burn_chance,
+		armor = parent.combat.armor,
+		health_recovery = 0,
+		sanity_recovery = 0
 	}
 	
 	# Calculate equipment

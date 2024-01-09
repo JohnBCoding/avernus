@@ -26,8 +26,9 @@ func heal(amount):
 	var amount_healed = adjusted_amount - current_health
 	current_health = adjusted_amount
 	
-	var text_controller = get_tree().get_first_node_in_group("text_controller")
-	text_controller.create_text(get_parent().position, "+%s HP" % amount_healed, "good")
+	if amount_healed > 0:
+		var text_controller = get_tree().get_first_node_in_group("text_controller")
+		text_controller.create_text(get_parent().position, "+%s HP" % amount_healed, "good")
 	
 func update_max(amount):
 	current_health += amount

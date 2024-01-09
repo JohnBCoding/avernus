@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmqr4npxbqspe"]
+
+[ext_resource type="PackedScene" uid="uid://ovmnte5e324g" path="res://src/items/item.tscn" id="1_aeh47"]
+
+[node name="blissleaf" instance=ExtResource("1_aeh47")]
+entity_name = "Blissleaf"
+entity_info = "I wonder what happens if you chew on it?"
+stats = {
+"sanity_recovery": 1
+}
+uses = -1
+auto_use = true
+
+[node name="sprite" parent="." index="0"]
+frame = 115

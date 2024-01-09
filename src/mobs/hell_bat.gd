@@ -9,6 +9,7 @@ func update_floor_mods(floor):
 				sprite.modulate = Color("#a13d3b")
 				entity_name = "Helltouched " + entity_name
 				entity_info = entity_info + "\nHelltouched: Living in Avernus has augmented this creature in unusual ways."
+				combat.burn_chance = 1
 				always_crit = true
 			elif randi_range(1, 100) <= suffix_chance:
 				entity_name = entity_name + " Alpha"

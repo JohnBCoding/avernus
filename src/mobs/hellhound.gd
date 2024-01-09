@@ -31,10 +31,8 @@ func tick():
 func bite_attack(player):
 	play_animation("attack")
 	combat.deal_damage(self, player, "melee")
-	var new_effect = load("res://src/effects/burning_effect.tscn").instantiate()
-	new_effect.position = player.entity_position.coords * 8
-	player.add_child(new_effect)
-	new_effect.emitting = true
+	var effects = get_tree().get_first_node_in_group("effect")
+	effects.create_effect(player.entity_position.coords * 8)
 	player.status.add_buff(Burning)
 	var audio =  get_tree().get_first_node_in_group("audio")
 	audio.play_destroy_vase()

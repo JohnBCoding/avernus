@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8jryutdysk5a"]
+[gd_scene load_steps=5 format=3 uid="uid://c8jryutdysk5a"]
 
 [ext_resource type="PackedScene" uid="uid://bm4e12en3qfm0" path="res://src/world.tscn" id="1_3ljwe"]
 [ext_resource type="PackedScene" uid="uid://dc00dkskldt63" path="res://src/gui/hud.tscn" id="2_qelfk"]
 [ext_resource type="PackedScene" uid="uid://deaxj8ia6vadr" path="res://src/audio_player.tscn" id="3_y2hma"]
+[ext_resource type="PackedScene" uid="uid://dta6bbhrobmph" path="res://src/effect_controller.tscn" id="4_yckcg"]
 
 [node name="game" type="Node2D"]
 
@@ -18,3 +19,5 @@ grow_vertical = 0
 size_flags_vertical = 8
 
 [node name="audio_player" parent="." instance=ExtResource("3_y2hma")]
+
+[node name="effect_controller" parent="." instance=ExtResource("4_yckcg")]

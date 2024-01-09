@@ -5,6 +5,7 @@ class_name Combat
 @export var ranged_damage: int
 @export var attack_range: int
 @export var crit_chance: int
+@export var burn_chance: int
 @export var armor: int
 
 @onready var Burning = preload("res://src/buffs/burning.tscn")
@@ -12,10 +13,8 @@ class_name Combat
 func check_on_hit(parent, target, crit):
 	if parent.status.stats.burn_chance > 0:
 		if crit || randi_range(1, 100) <= parent.status.stats.burn_chance:
-			var new_effect = load("res://src/effects/burning_effect.tscn").instantiate()
-			new_effect.position = target.entity_position.coords * 8
-			target.add_child(new_effect)
-			new_effect.emitting = true
+			var effects = get_tree().get_first_node_in_group("effect")
+			effects.create_effect(target.entity_position.coords * 8)
 			target.status.add_buff(Burning)
 		
 func deal_damage(parent, target, attack_type="melee", crit=false):
