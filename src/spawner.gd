@@ -2,10 +2,11 @@ extends Node
 
 @onready var Player = preload("res://src/player/player.tscn")
 @onready var mob_spawn_table = [[preload("res://src/mobs/hell_rat.tscn"), 20], [preload("res://src/mobs/hell_bat.tscn"), 3], [preload("res://src/mobs/hellhound.tscn"), 1]]
-@onready var base_item_spawn_table = [[preload("res://src/items/slingshot.tscn"), 5], [preload("res://src/items/shiv.tscn"), 15], [preload("res://src/items/preserved_insect.tscn"), 2],
-	[preload("res://src/items/soulmark.tscn"), 5], [preload("res://src/items/blood_vial.tscn"), 20], [preload("res://src/items/meat_on_stick.tscn"), 75]]
-@onready var chest_item_spawn_table = [[preload("res://src/items/slingshot.tscn"), 10], [preload("res://src/items/wooden_shield.tscn"), 10], [preload("res://src/items/preserved_insect.tscn"), 15], 
-	[preload("res://src/items/shiv.tscn"), 20], [preload("res://src/items/blissleaf.tscn"), 1000]]
+@onready var base_item_spawn_table = [[preload("res://src/items/meat_on_stick.tscn"), 55], [preload("res://src/items/blood_vial.tscn"), 20], [preload("res://src/items/shiv.tscn"), 10],
+[preload("res://src/items/slingshot.tscn"), 5], [preload("res://src/items/soulmark.tscn"), 5], [preload("res://src/items/preserved_insect.tscn"), 2], 
+[preload("res://src/items/blissleaf.tscn"), 2]]
+@onready var chest_item_spawn_table = [[preload("res://src/items/shiv.tscn"), 20], [preload("res://src/items/slingshot.tscn"), 10], [preload("res://src/items/wooden_shield.tscn"), 10], 
+[preload("res://src/items/preserved_insect.tscn"), 5], [preload("res://src/items/blissleaf.tscn"), 5]]
 
 func spawn_player(parent, pos):
 	var player = Player.instantiate()

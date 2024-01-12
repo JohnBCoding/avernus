@@ -118,21 +118,25 @@ process_mode = 3
 script = ExtResource("1_8vkn3")
 
 [node name="up" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.607843)
 position = Vector2(0, 2)
 rotation = 4.71239
 texture = ExtResource("2_hqcqb")
 offset = Vector2(6, 0)
 
 [node name="right" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.607843)
 texture = ExtResource("2_hqcqb")
 offset = Vector2(4, 0)
 
 [node name="down" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.607843)
 rotation = 1.5708
 texture = ExtResource("2_hqcqb")
 offset = Vector2(4, 0)
 
 [node name="left" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.607843)
 rotation = 3.14159
 texture = ExtResource("2_hqcqb")
 offset = Vector2(4, 0)

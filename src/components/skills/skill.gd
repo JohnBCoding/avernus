@@ -7,3 +7,6 @@ extends Node
 func activate(parent, dir=null):
 	print("GO!!!")
 	print(dir)
+
+func get_skill_range(_parent):
+	return 1

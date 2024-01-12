@@ -9,6 +9,16 @@ func setup(parent_obj, skill_parent_obj, skill_obj):
 	skill_parent = skill_parent_obj
 	skill = skill_obj
 
+func _draw():
+	if parent && skill:
+		var color = Color("#f9f5ef")
+		color.a = 0.2
+		for i in range(1, skill.get_skill_range(parent)+1):
+			draw_rect(Rect2(-4, -4-(8*i), 8, 8), color, true)
+			draw_rect(Rect2(-4+(8*i), -4, 8, 8), color, true)
+			draw_rect(Rect2(-4, -4+(8*i), 8, 8), color, true)
+			draw_rect(Rect2(-4-(8*i), -4, 8, 8), color, true)
+		
 func _process(_delta):
 	var dir = Vector2.ZERO
 	if Input.is_action_pressed("move_up"):

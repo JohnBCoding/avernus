@@ -2,10 +2,10 @@ extends "mob.gd"
 
 @onready var Burning = preload("res://src/buffs/burning.tscn")
 
-func update_floor_mods(floor):
+func update_floor_mods(floor_num):
 	add_to_group("demon")
 	
-	if floor >= 3:
+	if floor_num >= 3:
 		if randi_range(1, 100) <= mutate_chance:
 			if randi_range(1, 100) <= prefix_chance:
 				sprite.modulate = Color("#a13d3b")

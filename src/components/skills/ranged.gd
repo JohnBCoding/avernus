@@ -16,3 +16,6 @@ func activate(parent, dir=null):
 			var audio = get_tree().get_first_node_in_group("audio")
 			audio.play_basic_hit()
 			break
+
+func get_skill_range(parent):
+	return parent.status.stats.attack_range
